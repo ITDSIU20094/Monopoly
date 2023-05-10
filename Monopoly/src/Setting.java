@@ -64,7 +64,7 @@ public class Setting extends Component {
         });
 
         diceLabel = new JLabel("Dice:");
-        diceComboBox = new JComboBox<String>(new String[]{"Black", "White", "Red", "Green"});
+        //diceComboBox = new JComboBox<String>(new String[]{"Black", "White", "Red", "Green"});
         diceComboBox.setSelectedItem("Black");
         diceComboBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
@@ -74,7 +74,7 @@ public class Setting extends Component {
         });
 
         mapLabel = new JLabel("Map:");
-        mapComboBox = new JComboBox<String>(new String[]{"Southside", "Downtown", "Uptown", "Suburbia"});
+       //mapComboBox = new JComboBox<String>(new String[]{"Southside", "Downtown", "Uptown", "Suburbia"});
         mapComboBox.setSelectedItem("Southside");
         mapComboBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
@@ -173,7 +173,6 @@ public class Setting extends Component {
 
                 }
             });
-
 
 
             // Default button
@@ -278,7 +277,7 @@ public class Setting extends Component {
                 }
 
                 // Start game with settings
-                new Game(avatar, dice, map, numPlayers, numTurns);
+                //new Game(avatar, dice, map, numPlayers, numTurns);
             }
         });
     }
