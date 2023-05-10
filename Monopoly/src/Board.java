@@ -70,7 +70,5 @@ public class Board extends JPanel {
         pawnFiles.add(P8);
         smallSide = length / 17;
         //Hello
-
     }
-
 }
