@@ -18,7 +18,7 @@ public class Setting1 extends JFrame implements ActionListener {
         panel = new JPanel();
         panel.setLayout(null);
 
-        label1 = 
+
     }
 
     @Override
