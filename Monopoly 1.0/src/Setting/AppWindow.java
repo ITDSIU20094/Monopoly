@@ -1,6 +1,7 @@
-package App;
+package Setting;
 import javax.swing.*;
 import java.awt.*;
+
 
 public class AppWindow {
     private JFrame jFrame;
@@ -9,34 +10,29 @@ public class AppWindow {
     private JButton startButton;
     private JButton settingButton;
 
+    public AppWindow(){
 
-    public AppWindow() {
         imageIcon = new ImageIcon(this.getClass().getResource("demo.png"));
         jLabel = new JLabel(imageIcon);
-        jLabel.setSize(1000, 563);
+        jLabel.setSize(1000,563);
 
         startButton = new JButton("Start");
         startButton.setBounds(450, 250, 100, 40);
-        startButton.addActionListener(e -> startGame());
 
         settingButton = new JButton("Setting");
-        settingButton.setBounds(450, 300, 100, 40);
-        settingButton.addActionListener(e -> settingGame());
+        settingButton.setBounds(300, 50, 100, 40);
+
+
 
         jFrame = new JFrame();
         jFrame.add(jLabel);
         jFrame.add(startButton);
-        jFrame.add(settingButton);
-        jFrame.setSize(1000, 563);
+//        jFrame.add(settingButton);
+        jFrame.setSize(1000,563);
         jFrame.setLayout(new BorderLayout());
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
     }
 
-    public void startGame(){
-    }
-    public void settingGame(){
-        new Setting();
-    }
 }
