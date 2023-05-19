@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class Sound extends JFrame {
     private Clip clip;
@@ -44,11 +45,11 @@ public class Sound extends JFrame {
     private void loadSound() {
         try {
             // Đường dẫn đến tệp âm thanh
-            String audioFilePath = "path/to/audio/file.wav";
+            String audioFilePath = "C:\\Users\\User\\Documents\\Git Hub\\Monopoly\\Monopoly 1.0\\monopolysound.wav";
 
             // Mở tệp âm thanh và tạo AudioInputStream
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-                    Sound.class.getResourceAsStream(audioFilePath));
+                    Objects.requireNonNull(Sound.class.getResourceAsStream(audioFilePath)));
 
             // Lấy thông tin về âm thanh
             AudioFormat audioFormat = audioInputStream.getFormat();
