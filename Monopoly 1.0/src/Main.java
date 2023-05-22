@@ -1,5 +1,4 @@
 import App.AppWindow;
-
 import javax.swing.*;
 
 public class Main {
@@ -13,3 +12,4 @@ public class Main {
         });
     }
 }
+

@@ -9,10 +9,7 @@ public class AppSetting extends JFrame {
         panel.setLayout(new BorderLayout());
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(300,300);
+        setSize(400,500);
         setLocationRelativeTo(null);
     }
-
-
-
 }
