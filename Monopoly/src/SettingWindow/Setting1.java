@@ -1,3 +1,7 @@
+package SettingWindow;
+
+import SettingWindow.DefaultSetting;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -75,6 +79,12 @@ public class Setting1 extends JFrame implements ActionListener {
         btnPlayGame.setBounds(130, 210, 100, 30);
         btnPlayGame.addActionListener(this);
         panel.add(btnPlayGame);
+
+        add(panel);
+        setSize(1920,1080);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
 
     }
 

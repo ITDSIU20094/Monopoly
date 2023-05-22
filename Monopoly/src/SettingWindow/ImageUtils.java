@@ -1,3 +1,5 @@
+package SettingWindow;
+
 import java.util.List;
 import javax.imageio.ImageIO;
 import java.awt.Image;

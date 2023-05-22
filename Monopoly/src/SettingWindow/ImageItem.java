@@ -1,3 +1,5 @@
+package SettingWindow;
+
 import java.awt.Image;
 public class ImageItem {
     private Image image;

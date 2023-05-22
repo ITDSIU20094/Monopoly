@@ -1,3 +1,5 @@
+package SettingWindow;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,8 +12,13 @@ public class ImageItemRenderer extends JLabel implements ListCellRenderer<ImageI
     public Component getListCellRendererComponent(JList<? extends ImageItem> list, ImageItem value, int index,
                                                   boolean isSelected, boolean cellHasFocus) {
         // Set the image and name of the ImageItem
-        setIcon(new ImageIcon(value.getImage()));
-        setText(value.getName());
+        if (value == null) {
+            setText("");
+            setIcon(null);
+        }else {
+            setIcon(new ImageIcon(value.getImage()));
+            setText(value.getName());
+        }
 
         // Set background and foreground colors based on selection
         if (isSelected) {
