@@ -42,7 +42,7 @@ public class Setting1 extends JFrame implements ActionListener {
         label1.setBounds(20,20,100,20);
         panel.add(label1);
 
-        cbPlayerAvatar = new JComboBox<>((ComboBoxModel) pawnFiles);
+        cbPlayerAvatar = new JComboBox<File>(pawnFiles);
         cbPlayerAvatar.setBounds(130,20,100,20);
         panel.add(cbPlayerAvatar);
 
