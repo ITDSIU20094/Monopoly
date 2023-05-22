@@ -5,13 +5,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Setting1 extends JFrame implements ActionListener {
     private JPanel panel;
     private JLabel label1, label2;
     private JButton btnSetting, btnPlayGame;
 
-    private JComboBox<File> cbPlayerAvatar;
+    private JComboBox<ImageItem> cbPlayerAvatar;
 
     private ArrayList<File> pawnFiles = new ArrayList<File>();
     private File P1 = new File("./assets/Pawn/Boot.png");
@@ -42,8 +43,11 @@ public class Setting1 extends JFrame implements ActionListener {
         label1.setBounds(20,20,100,20);
         panel.add(label1);
 
-        cbPlayerAvatar = new JComboBox<File>(pawnFiles);
-        cbPlayerAvatar.setBounds(130,20,100,20);
+        List<ImageItem> imageItems = ImageUtils.loadImagesFromDirectory("./assets/Pawn");
+
+        cbPlayerAvatar = new JComboBox<>(imageItems.toArray(new ImageItem[0]));
+        cbPlayerAvatar.setRenderer(new ImageItemRenderer());
+        cbPlayerAvatar.setBounds(130, 20, 100, 20);
         panel.add(cbPlayerAvatar);
 
         label2 = new JLabel("Number of Players:");
