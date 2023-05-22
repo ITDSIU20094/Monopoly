@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class AppWindow extends JFrame {
         public AppWindow() {
                 ImageIcon imageIcon = new ImageIcon("Image/demo.png");
@@ -50,13 +51,6 @@ public class AppWindow extends JFrame {
                 setSize(imageIcon.getIconWidth(), imageIcon.getIconHeight());
                 setLocationRelativeTo(null);
                 getContentPane().add(layeredPane);
+
         }
 }
-
-
-
-
-
-
-
-

@@ -45,7 +45,7 @@ public class Sound extends JFrame {
     private void loadSound() {
         try {
             // Đường dẫn đến tệp âm thanh
-            String audioFilePath = "Monopoly/Monopoly 1.0/Sound/monopolysound.wav";
+            String audioFilePath = "Sound/SoundBackground.wav";
 
             // Mở tệp âm thanh và tạo AudioInputStream
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
