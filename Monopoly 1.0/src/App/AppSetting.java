@@ -12,4 +12,6 @@ public class AppSetting extends JFrame {
         setSize(400,500);
         setLocationRelativeTo(null);
     }
+
+    
 }

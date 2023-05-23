@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class AppWindow extends JFrame {
         public AppWindow() {
                 ImageIcon imageIcon = new ImageIcon("Image/demo.png");
@@ -41,11 +40,21 @@ public class AppWindow extends JFrame {
                         }
                 });
 
+                JButton quitButton = new JButton("Quit Game");
+                quitButton.setBounds(450,350,100,40);
+                quitButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                                System.exit(0);
+                        }
+                });
+
                 JLayeredPane layeredPane = new JLayeredPane();
                 layeredPane.setPreferredSize(new Dimension(imageIcon.getIconWidth(), imageIcon.getIconHeight()));
                 layeredPane.add(imageLabel, Integer.valueOf(0));
                 layeredPane.add(startButton, Integer.valueOf(1));
                 layeredPane.add(settingButton, Integer.valueOf(1));
+                layeredPane.add(quitButton, Integer.valueOf(1));
 
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 setSize(imageIcon.getIconWidth(), imageIcon.getIconHeight());

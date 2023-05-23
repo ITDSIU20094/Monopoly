@@ -10,6 +10,7 @@ public class ImageService {
         JLabel imageContainer;
         try {
             InputStream inputStream = ImageService.class.getResourceAsStream(filePath);
+            assert inputStream != null;
             image = ImageIO.read(inputStream);
             imageContainer = new JLabel(new ImageIcon(image));
             return imageContainer;
@@ -23,6 +24,7 @@ public class ImageService {
         BufferedImage image;
         try{
             InputStream inputStream = ImageService.class.getResourceAsStream(filePath);
+            assert inputStream != null;
             image = ImageIO.read(inputStream);
             imageContainer.setIcon(new ImageIcon(image));
         } catch (Exception e) {
