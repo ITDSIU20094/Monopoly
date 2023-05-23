@@ -55,19 +55,19 @@ public class Setting1 extends JFrame implements ActionListener {
         panel.add(cbPlayerAvatar);
 
         label2 = new JLabel("Number of Players:");
-        label2.setBounds(20, 140, 100, 20);
+        label2.setBounds(20, 140, 150, 20);
         panel.add(label2);
 
-        sliderNumPlayers = new JSlider(JSlider.HORIZONTAL, 2, 6, 4);
-        sliderNumPlayers.setBounds(130, 140, 100, 20);
+        sliderNumPlayers = new JSlider(JSlider.HORIZONTAL, 1, 4, 4);
+        sliderNumPlayers.setBounds(160, 140, 100, 20);
         panel.add(sliderNumPlayers);
 
         JLabel labelNumTurns = new JLabel("Number of Turns:");
         labelNumTurns.setBounds(20, 170, 100, 20);
         panel.add(labelNumTurns);
 
-        sliderNumTurns = new JSlider(JSlider.HORIZONTAL, 10, 50, 30);
-        sliderNumTurns.setBounds(130, 170, 100, 20);
+        sliderNumTurns = new JSlider(JSlider.HORIZONTAL, 1, 3,3 );
+        sliderNumTurns.setBounds(160, 170, 100, 20);
         panel.add(sliderNumTurns);
 
         btnSetting = new JButton("Default Setting");
@@ -90,7 +90,7 @@ public class Setting1 extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == btnSetting) {
+        if (e.getSource() == btnPlayGame) {
             String playerAvatar = (String) cbPlayerAvatar.getSelectedItem();
             int numPlayers = sliderNumPlayers.getValue();
             int numTurns = sliderNumTurns.getValue();
@@ -104,7 +104,7 @@ public class Setting1 extends JFrame implements ActionListener {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-        } else if (e.getSource() == btnPlayGame) {
+        } else if (e.getSource() == btnSetting) {
             DefaultSetting defaultSetting = new DefaultSetting();
             startGame(defaultSetting);
 
