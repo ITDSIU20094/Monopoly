@@ -59,7 +59,7 @@ public class Board extends JPanel {
 
         setPreferredSize(new Dimension(length, length));
 
-        pawnFiles = new ArrayList<>();
+        pawnList = new ArrayList<>();
         pawnFiles.add(P1);
         pawnFiles.add(P2);
         pawnFiles.add(P3);
