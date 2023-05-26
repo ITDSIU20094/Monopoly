@@ -1,6 +1,7 @@
 package SettingWindow;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.util.List;
 
 
@@ -26,8 +27,8 @@ public class Setting extends JFrame {
         JButton defaultbtn = new JButton();
         JButton playbtn = new JButton();
         JLabel jLabel2 = new JLabel();
-        List<String> pawnImages = Pawn.getPawnImages();
-        jComboBox1 = new JComboBox<>(pawnImages.toArray(new String[0]));
+
+        JComboBox<String> jComboBox1  = new JComboBox<>();
         javax.swing.JLabel jLabel3 = new JLabel();
         javax.swing.JLabel jLabel4 = new JLabel();
         jSlider1 = new JSlider();
@@ -214,19 +215,14 @@ public class Setting extends JFrame {
         //game.start();
     }
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent ignoredEvt) {
-
-        String selectedAvatar = (String) jComboBox1.getSelectedItem();
-        int numPlayers = jSlider1.getValue();
-        int numTurns = jSlider2.getValue();
-
-        PlayerAvatar avatar = new PlayerAvatar(selectedAvatar);
-        Setting.setAvatar(avatar);
-        Setting.setNumPlayers(numPlayers);
-        Setting.setNumTurns(numTurns);
-
-        //Game game = new Game(avatar, numPlayers, numTurns);
-        //game.start();
+    private void jComboBox1ActionPerformed(ActionEvent e) {
+        JComboBox<String> source = (JComboBox<String>) e.getSource();
+        String selectedValue = (String) source.getSelectedItem();
+        if (selectedValue.equals("Tank")) {
+            // Set AvatarPlayer image to "Tank.png"
+            ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Monopoly/.assets/Pawn/Tank.png"));
+            //avatar.setIcon(avatarIcon);
+        }
     }
 
     private void playbtnActionPerformed() {

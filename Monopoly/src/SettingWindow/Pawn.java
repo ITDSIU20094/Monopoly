@@ -1,29 +1,27 @@
 package SettingWindow;
 
 
+import java.awt.*;
 import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
-public class Pawn {
+public class Pawn implements Drawable {
+    private Point position;
+    private Path myPath;
+    private int positionIndex;
+    //private Player player;
+    private Image pawnImage;
+    Animator animator = Animator.getInstance();
+    ArrayList<Integer> path = new ArrayList<>();
+    //HashMap<Integer, Point[]> squareMap = Board.getInstance().getSquareMap();
 
 
-    public static List<String> getPawnImages() {
+    @Override
+    public void draw(Graphics g) {
 
-        List<String> pawnImages = new ArrayList<>();
-
-        File folder = new File("/Monopoly/.assets/Pawn/");
-        File[] files = folder.listFiles();
-
-        if (files != null) {
-            for (File file: files) {
-                if (file.isFile() && file.getName().endsWith(".png")) {
-                    pawnImages.add(file.getName());
-                }
-            }
-        }
-        return pawnImages;
     }
-
 }
