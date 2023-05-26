@@ -1,5 +1,6 @@
 package SettingWindow;
 
+import java.awt.*;
 import java.util.List;
 
 
@@ -14,72 +15,58 @@ public class Setting1 extends javax.swing.JFrame {
     }
 
 
-    @SuppressWarnings("unchecked")
-
-
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        defaultbtn = new javax.swing.JButton();
-        playbtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+        // Variables declaration - do not modify
+        javax.swing.JButton defaultbtn = new javax.swing.JButton();
+        javax.swing.JButton playbtn = new javax.swing.JButton();
+        javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
         List<String> pawnImages = Pawn.getPawnImages();
         jComboBox1 = new javax.swing.JComboBox<>(pawnImages.toArray(new String[0]));
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
         jSlider2 = new javax.swing.JSlider();
-        jLabel5 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+        javax.swing.JScrollPane jScrollPane2 = new javax.swing.JScrollPane();
+        javax.swing.JTextArea jTextArea2 = new javax.swing.JTextArea();
+        javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel7 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel9 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel10 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel11 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Setting");
         jLabel1.setToolTipText("");
 
         defaultbtn.setText("Default");
-        defaultbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                defaultbtnActionPerformed(evt);
-            }
-        });
+        defaultbtn.addActionListener(evt -> defaultbtnActionPerformed());
 
         playbtn.setText("Play Game");
-        playbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playbtnActionPerformed(evt);
-            }
-        });
+        playbtn.addActionListener(evt -> playbtnActionPerformed());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 14)); // NOI18N
         jLabel2.setText("Number of Players :");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tank", "Ship", "SpaceShip", "Motorbike","Boot","Car", "Chair","Hat"}));
         jComboBox1.setRenderer(new ImageComboBoxRenderer());
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
+        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 14)); // NOI18N
         jLabel3.setText("Player Avatar :");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 14)); // NOI18N
         jLabel4.setText("Number of Turns :");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 14)); // NOI18N
         jLabel5.setText("Game Rule");
 
         jTextArea2.setColumns(20);
@@ -215,34 +202,34 @@ public class Setting1 extends javax.swing.JFrame {
         pack();
     }
 
-    private void defaultbtnActionPerformed(java.awt.event.ActionEvent evt) {
+    private void defaultbtnActionPerformed() {
         PlayerAvatar defaultAvatar = new PlayerAvatar("hat.png");
         int defaultNumPlayers = 4;
         int defaultNumTurns = 30;
-        // Thực hiện các thao tác khởi chạy trò chơi với cài đặt mặc định
+
         //Game game = new Game(defaultAvatar, defaultNumPlayers, defaultNumTurns);
         //game.start();
     }
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent ignoredEvt) {
 
         String selectedAvatar = (String) jComboBox1.getSelectedItem();
-        int numPlayers = (int) jSlider1.getValue();
-        int numTurns = (int) jSlider2.getValue();
+        int numPlayers = jSlider1.getValue();
+        int numTurns = jSlider2.getValue();
 
         PlayerAvatar avatar = new PlayerAvatar(selectedAvatar);
         Setting1.setAvatar(avatar);
         Setting1.setNumPlayers(numPlayers);
         Setting1.setNumTurns(numTurns);
-        // Thực hiện các thao tác khởi chạy trò chơi ở đây
+
         //Game game = new Game(avatar, numPlayers, numTurns);
         //game.start();
     }
 
-    private void playbtnActionPerformed(java.awt.event.ActionEvent evt) {
+    private void playbtnActionPerformed() {
         String selectedAvatar = (String) jComboBox1.getSelectedItem();
-        int numPlayers = (int) jSlider1.getValue();
-        int numTurns = (int) jSlider2.getValue();
+        int numPlayers = jSlider1.getValue();
+        int numTurns =  jSlider2.getValue();
 
         PlayerAvatar avatar = new PlayerAvatar(selectedAvatar);
         Setting1.setAvatar(avatar);
@@ -264,7 +251,7 @@ public class Setting1 extends javax.swing.JFrame {
     public static void setNumTurns(int numTurns) {
         Setting1.numTurns = numTurns;
     }
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Setting1().setVisible(true);
@@ -272,26 +259,8 @@ public class Setting1 extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify
-    private javax.swing.JButton defaultbtn;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider jSlider2;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JButton playbtn;
 
 }
