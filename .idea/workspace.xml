@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="457fe056-dc54-44db-a7a7-69fc78f756d5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Monopoly/.assets/Pawn/345875373_647738780506051_117074921121793606_n.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/ImageComboBoxRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/ImageComboBoxRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Setting1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Setting1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +39,7 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Documents/Git Hub/Monopoly&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Setting1">
+  <component name="RunManager" selected="Application.Setting">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Monopoly" />
@@ -50,8 +47,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Setting1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SettingWindow.Setting1" />
+    <configuration name="Setting" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="SettingWindow.Setting" />
       <module name="Monopoly" />
       <extension name="coverage">
         <pattern>
@@ -65,7 +62,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Setting1" />
+        <item itemvalue="Application.Setting" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
