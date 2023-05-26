@@ -7,13 +7,13 @@ import java.util.List;
 import javax.swing.*;
 
 
-public class Setting1 extends JFrame {
+public class Setting extends JFrame {
     private static PlayerAvatar avatar;
     private static int numPlayers;
     private static int numTurns;
 
 
-    public Setting1() {
+    public Setting() {
         initComponents();
     }
 
@@ -221,9 +221,9 @@ public class Setting1 extends JFrame {
         int numTurns = jSlider2.getValue();
 
         PlayerAvatar avatar = new PlayerAvatar(selectedAvatar);
-        Setting1.setAvatar(avatar);
-        Setting1.setNumPlayers(numPlayers);
-        Setting1.setNumTurns(numTurns);
+        Setting.setAvatar(avatar);
+        Setting.setNumPlayers(numPlayers);
+        Setting.setNumTurns(numTurns);
 
         //Game game = new Game(avatar, numPlayers, numTurns);
         //game.start();
@@ -235,9 +235,9 @@ public class Setting1 extends JFrame {
         int numTurns =  jSlider2.getValue();
 
         PlayerAvatar avatar = new PlayerAvatar(selectedAvatar);
-        Setting1.setAvatar(avatar);
-        Setting1.setNumPlayers(numPlayers);
-        Setting1.setNumTurns(numTurns);
+        Setting.setAvatar(avatar);
+        Setting.setNumPlayers(numPlayers);
+        Setting.setNumTurns(numTurns);
         // Thực hiện các thao tác khởi chạy trò chơi ở đây
         //Game game = new Game(avatar, numPlayers, numTurns);
         //game.start();
@@ -245,19 +245,19 @@ public class Setting1 extends JFrame {
 
 
     public static void setAvatar(PlayerAvatar avatar) {
-        Setting1.avatar= avatar;
+        Setting.avatar= avatar;
     }
     public static void setNumPlayers(int numPlayers) {
-        Setting1.numPlayers = numPlayers;
+        Setting.numPlayers = numPlayers;
     }
 
     public static void setNumTurns(int numTurns) {
-        Setting1.numTurns = numTurns;
+        Setting.numTurns = numTurns;
     }
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Setting1().setVisible(true);
+                new Setting().setVisible(true);
             }
         });
     }
