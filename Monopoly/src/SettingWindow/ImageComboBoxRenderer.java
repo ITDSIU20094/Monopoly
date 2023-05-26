@@ -2,6 +2,8 @@ package SettingWindow;
 
 
 import java.awt.Component;
+import java.net.URL;
+import java.util.Objects;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -12,13 +14,13 @@ public class ImageComboBoxRenderer extends DefaultListCellRenderer {
     public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
         JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 
-        // Lấy đường dẫn đến hình ảnh dựa trên giá trị của ComboBox
-        String imagePath = "/Tireddd/assets/Pawn/" + value.toString() + ".png";
 
-        // Tạo ImageIcon từ đường dẫn hình ảnh
-        ImageIcon icon = new ImageIcon(getClass().getResource(imagePath));
+        String imagePath = "/Monopoly/.assets/Pawn/" + value.toString() + ".png";
 
-        // Đặt hình ảnh vào label
+
+        ImageIcon icon = new ImageIcon(Objects.<URL>requireNonNull(getClass().getResource(imagePath)));
+
+
         label.setIcon(icon);
 
         return label;

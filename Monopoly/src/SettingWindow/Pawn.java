@@ -10,7 +10,7 @@ public class Pawn {
 
 
     public static List<String> getPawnImages() {
-        String pathToPawnImages = "/Tireddd/assets/Pawn/";
+        String pathToPawnImages = "/Monopoly/.assets/Pawn/";
         List<String> pawnImages = new ArrayList<>();
 
         File folder = new File(pathToPawnImages);
