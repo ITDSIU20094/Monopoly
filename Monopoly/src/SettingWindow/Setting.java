@@ -60,7 +60,7 @@ public class Setting extends JFrame {
         jLabel2.setText("Number of Players :");
 
         jComboBox1.setModel(new DefaultComboBoxModel<>(new String[] { "Tank", "Ship", "SpaceShip", "Motorbike","Boot","Car", "Chair","Hat"}));
-        jComboBox1.setRenderer(new ImageComboBoxRenderer());
+        //jComboBox1.setRenderer(new ImageComboBoxRenderer());
         jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 14)); // NOI18N
