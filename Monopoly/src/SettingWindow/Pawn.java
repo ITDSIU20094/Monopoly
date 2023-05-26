@@ -10,10 +10,10 @@ public class Pawn {
 
 
     public static List<String> getPawnImages() {
-        String pathToPawnImages = "/Monopoly/Monopoly/.assets/Pawn/";
+
         List<String> pawnImages = new ArrayList<>();
 
-        File folder = new File(pathToPawnImages);
+        File folder = new File("/Monopoly/.assets/Pawn/");
         File[] files = folder.listFiles();
 
         if (files != null) {

@@ -15,10 +15,10 @@ public class ImageComboBoxRenderer extends DefaultListCellRenderer {
         JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 
 
-        String imagePath = "/Monopoly/Monopoly/.assets/Pawn/" + value.toString() + ".png";
+        String imagePath = "/Monopoly/.assets/Pawn/" + value.toString() + ".png";
 
 
-        ImageIcon icon = new ImageIcon(Objects.<URL>requireNonNull(getClass().getResource(imagePath)));
+        ImageIcon icon = new ImageIcon(Objects.requireNonNull(getClass().getResource(imagePath)));
 
 
         label.setIcon(icon);
