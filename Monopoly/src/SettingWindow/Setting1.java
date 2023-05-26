@@ -3,6 +3,7 @@ package SettingWindow;
 import SettingWindow.DefaultSetting;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -43,6 +44,11 @@ public class Setting1 extends JFrame implements ActionListener {
         pawnFiles.add(P7);
         pawnFiles.add(P8);
 
+        //JLabel label = new JLabel("Setting");
+        //label.setBounds(0,0,0,0);
+
+
+
         label1 = new JLabel("Player Avatar: ");
         label1.setBounds(20,20,100,20);
         panel.add(label1);
@@ -81,7 +87,7 @@ public class Setting1 extends JFrame implements ActionListener {
         panel.add(btnPlayGame);
 
         add(panel);
-        setSize(1920,1080);
+        setSize(1000,900);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
