@@ -2,8 +2,8 @@ package SettingWindow;
 
 
 import java.awt.Component;
-import java.net.URL;
 import java.util.Objects;
+
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
