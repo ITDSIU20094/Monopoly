@@ -12,22 +12,7 @@ import java.util.Random;
 public class joinGame extends JFrame {
     private int lastDiceOne;
     private int lastDiceTwo;
-
-//    public joinGame() {
-//        setTitle("Monopoly");
-//        ImageIcon imageIcon = new ImageIcon("Image/Board.jpg");
-//        JLabel imageLabel = new JLabel(imageIcon);
-//        imageLabel.setBounds(0, 0, imageIcon.getIconWidth(), imageIcon.getIconHeight());
-//
-//        JLayeredPane layeredPane = new JLayeredPane();
-//        layeredPane.setPreferredSize(new Dimension(imageIcon.getIconWidth(), imageIcon.getIconHeight()));
-//        layeredPane.add(imageLabel, Integer.valueOf(0));
-//
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        setSize(1200, 740);
-//        setLocationRelativeTo(null);
-//        getContentPane().add(layeredPane);
-//    }
+    private JTextArea playerInfoTextArea;
 
     public joinGame(){
         setTitle("Monopoly");
@@ -39,7 +24,6 @@ public class joinGame extends JFrame {
         addGuiComponents();
     }
 
-
     private void addGuiComponents() {
         JPanel jPanel = new JPanel(){
             @Override
@@ -47,7 +31,7 @@ public class joinGame extends JFrame {
                 super.paintComponent(g);
                 BufferedImage backgroundImage;
                 try {
-                    InputStream inputStream = ImageService.class.getResourceAsStream("Board.jpg");
+                    InputStream inputStream = ImageService.class.getResourceAsStream("BoardGame.png");
                     backgroundImage = ImageIO.read(inputStream);
                     g.drawImage(backgroundImage,0,0,null);
                 } catch (IOException e) {
@@ -59,22 +43,21 @@ public class joinGame extends JFrame {
 
         // Dices
         JLabel diceOneImg = ImageService.loadImage("dice1.png");
-        diceOneImg.setBounds(800, 200, 200, 200);
+        diceOneImg.setBounds(220, 250, 200, 200);
         jPanel.add(diceOneImg);
 
         JLabel diceTwoImg = ImageService.loadImage("dice2.png");
-        diceTwoImg.setBounds(860, 200, 200, 200);
+        diceTwoImg.setBounds(280, 250, 200, 200);
         jPanel.add(diceTwoImg);
 
         // Roll Button
         Random random = new Random();
         JButton rollButton = new JButton("Roll");
-        rollButton.setBounds(870, 350, 120, 50);
+        rollButton.setBounds(870, 600, 90, 40);
         rollButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 rollButton.setEnabled(false);
-
                 // roll 3 seconds
                 long startTime = System.currentTimeMillis();
                 Thread rollThread = new Thread(new Runnable() {
@@ -111,9 +94,29 @@ public class joinGame extends JFrame {
                 rollThread.start();
             }
         });
-
         jPanel.add(rollButton);
+
+        // Background Player
+        JLabel backgroundPlayer = ImageService.loadImage("a2.png");
+        backgroundPlayer.setBounds(600,100,400,600);
+        jPanel.add(backgroundPlayer);
+        //
+
+        //Table of Player
+        playerInfoTextArea = new JTextArea();
+        playerInfoTextArea.setEditable(false);
+        playerInfoTextArea.setBounds(800, 250, 300, 200);
+        playerInfoTextArea.setBackground(Color.lightGray);
+        jPanel.add(playerInfoTextArea);
+        initializePlayerInfo();
+        //
         this.getContentPane().add(jPanel);
+    }
+
+    private  void initializePlayerInfo(){
+        playerInfoTextArea.append("Player 1: \n");
+        playerInfoTextArea.append("Money: $1500\n");
+        playerInfoTextArea.append("Properties: Park Place");
     }
 
     private void printLastRollDiceNumbers() {
