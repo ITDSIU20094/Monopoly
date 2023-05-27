@@ -1,3 +1,0 @@
-Player Avatar: null
-Number of Players: 4
-Number of Turns: 30

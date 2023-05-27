@@ -1,7 +1,7 @@
 package SettingWindow;
 
 public class DefaultSetting {
-    public String playerAvatar = "Hat.png";
-    public int numPlayers = 4;
-    public int numTurns = 30;
+    private String playerAvatar = "Hat.png";
+    private int numPlayers = 4;
+    private int numTurns = 30;
 }
