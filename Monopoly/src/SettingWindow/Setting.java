@@ -1,11 +1,9 @@
 package SettingWindow;
 
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
-
 import java.util.Objects;
-
-
 import javax.swing.*;
 
 
@@ -19,25 +17,14 @@ public class Setting extends JFrame {
     private JComboBox jComboBox1;
     private JSlider jSlider1;
     private JSlider jSlider2;
-
-
-
-
     public Setting() {
         initComponents();
         setVisible(true);
     }
 
-
     private void initComponents() {
-
-
-
         JPanel jPanel1 = new JPanel();
         JLabel jLabel1 = new JLabel();
-
-
-
         JButton defaultbtn = new JButton();
         JButton playbtn = new JButton();
         JLabel jLabel2 = new JLabel();
@@ -63,7 +50,7 @@ public class Setting extends JFrame {
         ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("background2.jpg")));
         backgroundLabel.setIcon(backgroundImage);
         backgroundLabel.setBounds(0, 0, getWidth(), getHeight());
-        add(backgroundLabel);
+        this.add(backgroundLabel);
 
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 24)); // NOI18N
@@ -173,7 +160,7 @@ public class Setting extends JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel3))
                                                 .addGap(72, 72, 72)
                                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
@@ -204,10 +191,18 @@ public class Setting extends JFrame {
 
         jSlider1.setMinimum(1);
         jSlider1.setMaximum(4);
+        jSlider1.setPaintTicks(true);
+        jSlider1.setPaintTrack(true);
         jSlider1.setMajorTickSpacing(1);
+        jSlider1.setPaintLabels(true);
         jSlider2.setMinimum(30);
         jSlider2.setMaximum(50);
         jSlider2.setMajorTickSpacing(10);
+        jSlider2.setPaintTrack(true);
+        jSlider2.setPaintTicks(true);
+        jSlider2.setMinorTickSpacing(1);
+        jSlider2.setPaintLabels(true);
+
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -238,8 +233,8 @@ public class Setting extends JFrame {
             Setting.setNumPlayers(numPlayers);
             Setting.setNumTurns(numTurns);
             // Thực hiện các thao tác khởi chạy trò chơi ở đây
-            //Game game = new Game(avatar, numPlayers, numTurns);
-            //game.start();
+            // game = new Game();
+            //game.startGameLoop();
         }
     }
 
@@ -258,39 +253,45 @@ public class Setting extends JFrame {
 
         String selectedValue = (String) jComboBox1.getSelectedItem();
             if (jComboBox1 != null) {
-                switch (Objects.requireNonNull(selectedValue)) {
-                    case "Tank.png" -> {
+                selectedValue = selectedValue.trim();
+                int dotIndex = selectedValue.lastIndexOf(".");
+                if (dotIndex > 0) {
+                    selectedValue = selectedValue.substring(0, dotIndex);
+                }
+                jComboBox1.setSelectedItem(selectedValue);
+                switch (selectedValue) {
+                    case "Tank1.png" -> {
                 // Set AvatarPlayer image to "Tank.png"
-                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Tank.png"));
+                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Tank1.png"));
+                        avatar.setIcon(avatarIcon);
 
+                }
+                    case "Hat1.png" -> {
+                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Hat1.png"));
                         avatar.setIcon(avatarIcon);
                 }
-                    case "Hat.png" -> {
-                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Hat.png"));
+                    case "Car1.png" -> {
+                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Car1.png"));
                         avatar.setIcon(avatarIcon);
                 }
-                    case "Car.png" -> {
-                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Car.png"));
+                    case "Chair1.png" -> {
+                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Chair1.png"));
                         avatar.setIcon(avatarIcon);
                 }
-                    case "Chair.png" -> {
-                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Chair.png"));
+                    case "Boot1.png" -> {
+                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Boot1.png"));
                         avatar.setIcon(avatarIcon);
                 }
-                    case "Boot.png" -> {
-                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Boot.png"));
+                    case "Motorbike1.png" -> {
+                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Motorbike1.png"));
                         avatar.setIcon(avatarIcon);
                 }
-                    case "Motorbike.png" -> {
-                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Motorbike.png"));
+                    case "Ship1.png" -> {
+                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Ship1.png"));
                         avatar.setIcon(avatarIcon);
                 }
-                    case "Ship.png" -> {
-                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/Ship.png"));
-                        avatar.setIcon(avatarIcon);
-                }
-                    case "SpaceShip.png" -> {
-                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/SpaceShip.png"));
+                    case "SpaceShip1.png" -> {
+                        ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Pawn/SpaceShip1.png"));
                         avatar.setIcon(avatarIcon);
                 }
             }
