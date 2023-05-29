@@ -25,7 +25,7 @@ public class PropertySquare extends Square{
     }
     private int calculateRent()
     {
-        if (getRentListIndex() <= 6) return rentFactor * rentList[getRentListIndex()];
+        if (getRentListIndex() <= 3) return rentFactor * rentList[getRentListIndex()];
         else return 0;
     }
     public String getColor() {
@@ -38,17 +38,11 @@ public class PropertySquare extends Square{
 
     public int numHouses()
     {
-        if (getRentListIndex() <= 4) return getRentListIndex();
+        if (getRentListIndex() <= 3) return getRentListIndex();
         else return 0;
     }
-    public boolean hasHotel()
-    {
-        return (getRentListIndex() == 5);
-    }
-    public boolean hasSkyscraper()
-    {
-        return (getRentListIndex() == 6);
-    }
+
+
 
     public boolean getMortgaged()
     {
@@ -58,7 +52,7 @@ public class PropertySquare extends Square{
     public void mortgage() {
         if (!isMortgaged) {
             setMortgage(true);
-            rentListIndex = 7;
+            rentListIndex = 3;
         }
     }
     public void removeMortgage() {
@@ -72,7 +66,7 @@ public class PropertySquare extends Square{
         this.isMortgaged = mortgageVal;
     }
     public boolean canBeImproved() {
-        return (getRentListIndex() < 6);
+        return (getRentListIndex() < 3);
     }
 
     public boolean canBeDowngraded() {
@@ -92,7 +86,7 @@ public class PropertySquare extends Square{
 
     public int getHousePrice()
     {
-        return rentList[8];
+        return rentList[4];
     }
     public void setPrice(int newPrice) {
         this.price = newPrice;
@@ -144,7 +138,7 @@ public class PropertySquare extends Square{
 
     }
     public boolean repOk() {
-        if(this.getName() != null && price > 0 && color != null && rentFactor > 0 && rentList != null && rentList.length == 8) {
+        if(this.getName() != null && price > 0 && color != null && rentFactor > 0 && rentList != null && rentList.length == 4) {
             for(int rentPrice : this.getRentList()) {
                 if(rentPrice <= 0) return false;
             }

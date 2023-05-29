@@ -25,8 +25,19 @@ public class CardFactory implements Serializable {
     public ChanceCard createChanceCard(int index) {
         switch (index) {
             case 0:
-                return new ChanceGoToSpecialCell();
+                return new ChanceGoToSpecialCell(ChanceCard_names[index],goToSpecialCell);
+            case 1:
+                return new ReceiveMoneyFromTheBank(ChanceCard_names[index],receiveMoneyFromtheBank);
+            case 2:
+                return new ChanceReceiveThePrisonTicket(ChanceCard_names[index],receiveThePrisonticket);
+            case 3:
+                return new GoodLuckNextTime(ChanceCard_names[index], goodLuckNextTime);
+            case 4:
+                return new ChanceReceiveArollTurn(ChanceCard_names[index], receiveArollTurn);
+            default:
+                return null;
         }
+
     }
 
 }

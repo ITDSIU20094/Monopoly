@@ -229,22 +229,19 @@ public class GameEngine {
         Square square = domainBoard.getSquareAt(getChosenSquareIndex());
 
         if (square.getType().equals("PropertySquare")) {
-
             PropertySquare propertySquare = ((PropertySquare) square);
             HashMap<String, ArrayList<PropertySquare>> propertyCardsMap = currentPlayer.getPropertyCardsMap();
 
-            if (propertyCardsMap != null) {
-                if (propertyCardsMap.get(propertySquare.getColor()) != null) {
-                    if (!propertySquare.hasHotel() && propertySquare.numHouses() != 4) {
-                        if (propertyCardsMap.get(propertySquare.getColor()).size() >= 2) {
-                            publishEvent("improve/" + chosenSquareIndex);
-                            return true;
-                        }
-                    } else if (propertySquare.hasHotel() || propertySquare.numHouses() == 4) {
-                        if (propertyCardsMap.get(propertySquare.getColor()).size() >= 3) {
-                            publishEvent("improve/" + chosenSquareIndex);
-                            return true;
-                        }
+            if (propertyCardsMap != null && propertyCardsMap.get(propertySquare.getColor()) != null) {
+                if (propertySquare.numHouses() != 4) {
+                    if (propertyCardsMap.get(propertySquare.getColor()).size() >= 2) {
+                        publishEvent("improve/" + chosenSquareIndex);
+                        return true;
+                    }
+                } else {
+                    if (propertyCardsMap.get(propertySquare.getColor()).size() >= 3) {
+                        publishEvent("improve/" + chosenSquareIndex);
+                        return true;
                     }
                 }
             }
@@ -272,6 +269,9 @@ public class GameEngine {
         }
         setSquareUnselected();
         publishEvent("refresh");
+    }
+    public void sendToJail() {
+        playerController.putInJail();
     }
 
 

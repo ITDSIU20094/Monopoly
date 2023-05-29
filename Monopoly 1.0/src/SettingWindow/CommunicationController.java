@@ -43,8 +43,8 @@ public class CommunicationController {
                 gameEngine.calculatePath();
             } else if (input.contains("penalty")) {
                 PlayerController.getInstance().putInJail();
-                PlayerController.getInstance().movePlayer(66);
-                GameEngine.getInstance().publishEvent("teleport"+66);
+                PlayerController.getInstance().movePlayer(10);
+                GameEngine.getInstance().publishEvent("teleport"+10);
             }else if (input.contains("purchase")) {
                 gameEngine.buy();
             } else if (input.contains("card")) {
@@ -67,8 +67,6 @@ public class CommunicationController {
             } else if (input.contains("pause")) {
                 gameEngine.pause();
 
-            } else if (input.contains("loadData")) {
-                gameEngine.publishEvent("refreshPlayerDisplay");
             }
 
         } else if (objectInput instanceof PlayerController) {
