@@ -229,8 +229,8 @@ public class Setting extends JFrame {
             Setting.setNumPlayers(numPlayers);
             Setting.setNumTurns(numTurns);
             // Thực hiện các thao tác khởi chạy trò chơi ở đây
-            joinGame joinGame = new joinGame(avatar, numPlayers, numTurns);
-            //game.;
+            //Game game = new joinGame(avatar, numPlayers, numTurns);
+            //game.start();
         }
     }
 
@@ -240,7 +240,7 @@ public class Setting extends JFrame {
             int defaultNumPlayers = 4;
             int defaultNumTurns = 30;
 
-            joinGame game = new joinGame(defaultAvatar, defaultNumPlayers, defaultNumTurns);
+            //Game game = new Game(defaultAvatar, defaultNumPlayers, defaultNumTurns);
             //game.start();
         }
     }
