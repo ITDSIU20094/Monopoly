@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="457fe056-dc54-44db-a7a7-69fc78f756d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Animator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monopoly/src/Drawable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Drawable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/ImageComboBoxRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/ImageComboBoxRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/PlayerAvatar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/PlayerAvatar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Setting.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Setting.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +42,12 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Documents/Git Hub/Monopoly&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Setting">
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="SettingWindow" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Monopoly" />
@@ -67,8 +70,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Setting" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Setting" />
       </list>
     </recent_temporary>
   </component>

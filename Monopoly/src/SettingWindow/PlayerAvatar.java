@@ -1,6 +1,8 @@
 package SettingWindow;
 
 
+import javax.swing.*;
+
 public class PlayerAvatar {
     private String imagePath;
 
@@ -11,4 +13,6 @@ public class PlayerAvatar {
         return imagePath;
     }
 
+    public void setIcon(ImageIcon avatarIcon) {
+    }
 }
