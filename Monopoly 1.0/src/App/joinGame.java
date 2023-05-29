@@ -1,4 +1,6 @@
 package App;
+import SettingWindow.PlayerAvatar;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +15,10 @@ public class joinGame extends JFrame {
     private int lastDiceOne;
     private int lastDiceTwo;
     private JTextArea playerInfoTextArea;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
 
     public joinGame(){
         setTitle("Monopoly");
@@ -24,6 +30,13 @@ public class joinGame extends JFrame {
         addGuiComponents();
     }
 
+<<<<<<< HEAD
+=======
+    public joinGame(PlayerAvatar avatar, int numPlayers, int numTurns) {
+
+    }
+
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
     private void addGuiComponents() {
         JPanel jPanel = new JPanel(){
             @Override
