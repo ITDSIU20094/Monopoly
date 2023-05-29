@@ -20,7 +20,7 @@ public class AppWindow extends JFrame {
                                 EventQueue.invokeLater(new Runnable() {
                                         @Override
                                         public void run() {
-                                                new joinGame().setVisible(true);
+                                                new Board().setVisible(true);
                                         }
                                 });
                         }
