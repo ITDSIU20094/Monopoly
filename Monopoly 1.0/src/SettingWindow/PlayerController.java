@@ -73,6 +73,9 @@ public class PlayerController implements Serializable {
     public void removePlayer(Player player) {
         players.remove(player);
     }
+    public void setPath(Player p, LinkedList<Integer> path) {
+        p.setPath(path);
+    }
     public ArrayList<Player> getPlayers() {
         return players;
     }
