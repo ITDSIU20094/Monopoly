@@ -1,7 +1,7 @@
 package SettingWindow;
 
 
-import App.joinGame;
+import App.Board;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

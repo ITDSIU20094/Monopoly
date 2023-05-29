@@ -15,8 +15,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Observable;
-import java.util.HashMap;
 import java.util.List;
 
 import java.util.Random;
@@ -39,12 +37,15 @@ public class Board extends JFrame implements Observer {
     private HashMap<Integer, Point[]> squareMap = new HashMap<Integer, Point[]>();
     private ArrayList<Integer> currentPath = new ArrayList<Integer>();
     private ArrayList<File> pawnFiles = new ArrayList<File>();
-    private File P1Src = new File("./assets/pawns/hat.png");
-    private File P2Src = new File("./assets/pawns/iron.png");
-    private File P3Src = new File("./assets/pawns/rende.png");
-    private File P4Src = new File("./assets/pawns/car.png");
-    private File P5Src = new File("./assets/pawns/ship.png");
-    private File P6Src = new File("./assets/pawns/boot.png");
+    private File P1Src = new File("Hat1.png");
+    private File P2Src = new File("Motorbike1.png");
+    private File P3Src = new File("SpaceShip1.png");
+    private File P4Src = new File("Chair1.png");
+    private File P5Src = new File("Ship1.png");
+    private File P6Src = new File("Tank1.png");
+    private File P7Src = new File("Car1.png");
+    private File P8Src = new File("Boot1.png");
+
 
 
     public Board() {
@@ -66,6 +67,7 @@ public class Board extends JFrame implements Observer {
                 BufferedImage backgroundImage;
                 try {
                     InputStream inputStream = ImageService.class.getResourceAsStream("BoardGame.png");
+
                     backgroundImage = ImageIO.read(inputStream);
                     g.drawImage(backgroundImage, 0, 0, null);
                 } catch (IOException e) {
@@ -76,7 +78,7 @@ public class Board extends JFrame implements Observer {
         jPanel.setLayout(null);
 
         // Dices
-        JLabel diceOneImg = ImageService.loadImage("dice1.png");
+        /**JLabel diceOneImg = ImageService.loadImage("dice1.png");
         diceOneImg.setBounds(220, 250, 200, 200);
         jPanel.add(diceOneImg);
 
@@ -128,7 +130,7 @@ public class Board extends JFrame implements Observer {
                 rollThread.start();
             }
         });
-        jPanel.add(rollButton);
+        jPanel.add(rollButton);**/
 
         // Background Player
         JLabel backgroundPlayer = ImageService.loadImage("a2.png");
@@ -145,6 +147,9 @@ public class Board extends JFrame implements Observer {
         initializePlayerInfo();
         //
         this.getContentPane().add(jPanel);
+    }
+    public int getLastValues(){
+        return lastDiceOne + lastDiceTwo ;
     }
 
     private void initializePlayerInfo() {
@@ -195,6 +200,8 @@ public class Board extends JFrame implements Observer {
         pawnFiles.add(P4Src);
         pawnFiles.add(P5Src);
         pawnFiles.add(P6Src);
+        pawnFiles.add(P7Src);
+        pawnFiles.add(P8Src);
         smallSide = length / 13;
         initialPosition = new Point(9 * smallSide - 20, 9 * smallSide - 20);
         gameEngine.subscribe(this);
@@ -209,188 +216,81 @@ public class Board extends JFrame implements Observer {
             }
         });
     }
-    private Point[] createPointArray(Point start) {
-        return new Point[]{new Point(start.x, start.y)};
+    private Point[] createPointArray(Point startRightBottom, Point startLeftTop) {
+        return new Point[]{new Point(startRightBottom.x, startRightBottom.y),
+                new Point(startLeftTop.x, startLeftTop.y)};
     }
 
     private int findSquare(Point p) {
         for (int i = 0; i < squareMap.keySet().size(); i++) {
             Point rightBottom = squareMap.get(i)[0];
-
+            Point leftTop = squareMap.get(i)[1];
             int rightBottomX = rightBottom.x;
             int rightBottomY = rightBottom.y;
-
+            int leftTopX = leftTop.x;
+            int leftTopY = leftTop.y;
             int x = p.x;
             int y = p.y;
-            if (x < rightBottomX && y < rightBottomY) {
+            if (x > leftTopX && x < rightBottomX && y > leftTopY && y < rightBottomY)
                 return i;
-            }
         }
         return -1;
     }
 
     public void initializeSquarePositions() {
         int x = smallSide;
-        Point start = new Point(13 * x, 13 * x);
-        
-        squareMap.put(0, createPointArray(start));
+        Point startRightBottom = new Point(13 * x, 13 * x); //(13x,13x)
+        Point startLeftTop = new Point(11 * x, 11 * x); //(11x,11x)
+        squareMap.put(0, createPointArray(startRightBottom, startLeftTop));
 
         //outer layer
-        start.x -= 2 * x;
-        
-        for (int i = 1; i < 8; i++) {
-            squareMap.put(i, createPointArray(start ));
-            start.x -= x;
-            
+        startRightBottom.x -= 2 * x; //(11x,13x)
+        startLeftTop.x -= x; //(10x,11x)
+        for (int i = 1; i < 9; i++) {
+            squareMap.put(i, createPointArray(startRightBottom, startLeftTop));
+            startRightBottom.x -= x;
+            startLeftTop.x -= x;
         }
-        squareMap.put(8, createPointArray(start));
+        squareMap.put(9, createPointArray(startRightBottom, startLeftTop)); // (2x,11x) + (3x,13x)
 
-        start.x -= x;
-        
-        squareMap.put(9, createPointArray(start));
+        startRightBottom.x -= x;//(2x,13x)
+        startLeftTop.x -= 2 * x;//(0x,11x)
+        squareMap.put(10, createPointArray(startRightBottom, startLeftTop));
 
-        start.y -= 2 * x;
-        
-        for (int i = 10; i < 27; i++) {
-            squareMap.put(i, createPointArray(start));
-            start.y -= x;
-            
+        startRightBottom.y -= 2 * x; //(2x,11x)
+        startLeftTop.y -= x;    //(0x,10x)
+        for (int i = 11; i < 19; i++) {
+            squareMap.put(i, createPointArray(startRightBottom, startLeftTop));
+            startRightBottom.y -= x;
+            startLeftTop.y -= x;
         }
-        squareMap.put(27, createPointArray(start));
+        squareMap.put(19, createPointArray(startRightBottom, startLeftTop)); //(0x,2x) + (2x,3x)
 
-        start.y -= x;
-        
-        squareMap.put(28, createPointArray(start));
+        startRightBottom.y -= x;//(2x,2x)
+        startLeftTop.y -= 2 * x; //(0x,0x)
+        squareMap.put(20, createPointArray(startRightBottom, startLeftTop));
 
-        start.x += x;
-        
-        for (int i = 29; i < 41; i++) {
-            squareMap.put(i, createPointArray(start ));
-            start.x += x;
-            
+        startRightBottom.x += x; //(3x,2x)
+        startLeftTop.x += 2 * x; // (2x,0x)
+        for (int i = 21; i < 29; i++) {
+            squareMap.put(i, createPointArray(startRightBottom, startLeftTop));
+            startRightBottom.x += x; //(10x,2x)
+            startLeftTop.x += x; //(11x,0x)
         }
-        squareMap.put(41, createPointArray(start));
+        squareMap.put(29, createPointArray(startRightBottom, startLeftTop));
 
-        start.x += 2 * x;
-        
-        squareMap.put(42, createPointArray(start ));
+        startRightBottom.x += 2 * x; //(13x,2x)
+        startLeftTop.x += x; //(11x,0x)
+        squareMap.put(30, createPointArray(startRightBottom, startLeftTop));
 
-        start.y += x;
-        
-        for (int i = 43; i < 55; i++) {
-            squareMap.put(i, createPointArray(start ));
-            start.y += x;
-            
+        startRightBottom.y += x; //(13x,3x)
+        startLeftTop.y += 2 * x; //(11x,2x)
+        for (int i = 31; i < 39; i++) {
+            squareMap.put(i, createPointArray(startRightBottom, startLeftTop));
+            startRightBottom.y += x;
+            startLeftTop.y += x;
         }
-        squareMap.put(55, createPointArray(start ));
-
-        //medium layer
-        start.x -= 2 * x;
-        
-        
-        squareMap.put(56, createPointArray(start ));
-
-        start.x -= 2 * x;
-        
-        for (int i = 57; i < 65; i++) {
-            squareMap.put(i, createPointArray(start ));
-            start.x -= x;
-            
-        }
-        squareMap.put(65, createPointArray(start ));
-
-        start.x -= x;
-        
-        squareMap.put(66, createPointArray(start ));
-
-        start.y -= 2 * x;
-        
-        for (int i = 67; i < 75; i++) {
-            squareMap.put(i, createPointArray(start ));
-            start.y -= x;
-            
-        }
-        squareMap.put(75, createPointArray(start ));
-
-        start.y -= x;
-        
-        squareMap.put(76, createPointArray(start));
-
-        start.x += x;
-        
-        for (int i = 77; i < 85; i++) {
-            squareMap.put(i, createPointArray(start ));
-            start.x += x;
-            
-        }
-        squareMap.put(85, createPointArray(start));
-
-        start.x += 2 * x;
-        
-        squareMap.put(86, createPointArray(start ));
-
-        start.y += x;
-        
-        for (int i = 87; i < 95; i++) {
-            squareMap.put(i, createPointArray(start));
-            start.y += x;
-            
-        }
-        squareMap.put(95, createPointArray(start ));
-
-        //inner layer
-        start.x -= 2 * x;
-        
-        
-        squareMap.put(96, createPointArray(start ));
-
-        start.x -= 2 * x;
-        
-        for (int i = 97; i < 101; i++) {
-            squareMap.put(i, createPointArray(start ));
-            start.x -= x;
-            
-        }
-        squareMap.put(101, createPointArray(start));
-
-        start.x -= x;
-
-        squareMap.put(102, createPointArray(start ));
-
-        start.y -= 2 * x;
-
-        for (int i = 103; i < 107; i++) {
-            squareMap.put(i, createPointArray(start ));
-            start.y -= x;
-
-        }
-        squareMap.put(107, createPointArray(start ));
-
-        start.y -= x;
-
-        squareMap.put(108, createPointArray(start ));
-
-        start.x += x;
-
-        for (int i = 109; i < 113; i++) {
-            squareMap.put(i, createPointArray(start ));
-            start.x += x;
-
-        }
-        squareMap.put(113, createPointArray(start ));
-
-        start.x += 2 * x;
-
-        squareMap.put(114, createPointArray(start ));
-
-        start.y += x;
-
-        for (int i = 115; i < 119; i++) {
-            squareMap.put(i, createPointArray(start ));
-            start.y += x;
-
-        }
-        squareMap.put(119, createPointArray(start ));
+        squareMap.put(39, createPointArray(startRightBottom, startLeftTop));
     }
     public void initializePawns() {
         pawnList.forEach(pawn -> {
@@ -402,13 +302,13 @@ public class Board extends JFrame implements Observer {
         playerList.forEach(player -> addNewPawn(player, pawnFiles.get(player.getPlaceHolder())));
         repaint();
     }
-    public void paint(Graphics g) {
+    /**public void paint(Graphics g) {
         //g.setColor(color);
         g.fillRect(position.x, position.y, length, length);
         g.drawImage(image, position.x, position.y, length, length, null);
 
         drawBuildings(g);
-    }
+    }**/
     public void addNewPawn(Player player, File file) {
 
         int xCoord = (squareMap.get(player.getTargetPosition())[0].x + squareMap.get(player.getTargetPosition())[1].x) / 2;

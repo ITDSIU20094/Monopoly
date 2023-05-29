@@ -1,12 +1,13 @@
-import SettingWindow.Setting;
+
+import main.Game;
 
 import javax.swing.*;
 import java.util.Objects;
 
 public class Main {
-    private static JLabel backgroundLabel;
+
     public static void main(String[] args) {
-        Setting settingScreen = new Setting();
+        new Game();
 
     }
 }
