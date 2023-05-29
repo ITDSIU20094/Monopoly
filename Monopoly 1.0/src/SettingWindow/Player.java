@@ -33,6 +33,7 @@ public class Player implements Serializable {
     }
 
 
+
     public boolean isInJail() {
         return inJail;
     }
@@ -48,6 +49,13 @@ public class Player implements Serializable {
 
         position = newPos;
     }
+    public ArrayList<Card> getCardList() {
+        return cardList;
+    }
+    public ArrayList<PropertySquare> getPropertySquares() {
+        return propertySquares;
+    }
+
     public boolean isBot()
     {
         return this.bot;
@@ -74,6 +82,7 @@ public class Player implements Serializable {
         money = newmoney;
     }
 
+
     public int getPlaceHolder() {
         return placeHolder;
     }
@@ -82,6 +91,21 @@ public class Player implements Serializable {
     }
     public ArrayList<UtilitySquare> getUtilityList() {
         return this.utilityList;
+    }
+    public void addSquare(PropertySquare propertySquare) {
+        // propertyCardsMap.put(propertySquare)
+        propertySquares.add(propertySquare);
+        if(propertyCardsMap.get(propertySquare.getColor()) != null) {
+            propertyCardsMap.get(propertySquare.getColor()).add(propertySquare);
+        } else {
+            ArrayList<PropertySquare> pSA = new ArrayList<PropertySquare>();
+            propertyCardsMap.put(propertySquare.getColor(),pSA);
+            propertyCardsMap.get(propertySquare.getColor()).add(propertySquare);
+        }
+        System.out.println(propertyCardsMap.get(propertySquare.getColor()));
+    }
+    public void addCard(Card card) {
+        cardList.add(card);
     }
     public int getRentMultiplier()
     {

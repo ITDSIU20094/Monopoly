@@ -49,6 +49,7 @@ public class PlayerController implements Serializable {
         return null;
 
     }
+
     public void putInJail() {
         players.get(currentPlayer).setinJail(true);
     }
@@ -64,20 +65,33 @@ public class PlayerController implements Serializable {
     }
 
     public void increaseCurrentPosition(Player player) {
-        player.setPosition((player.getPosition() + 1) % 120);
+        player.setPosition((player.getPosition() + 1) % 40);
     }
 
     public void removeProperty(PropertySquare propertySquare) {
         players.get(currentPlayer).getPropertyCardsMap().remove(propertySquare.getColor(), propertySquare);
     }
-    public void removePlayer(Player player) {
-        players.remove(player);
-    }
+
     public void setPath(Player p, LinkedList<Integer> path) {
         p.setPath(path);
     }
+    public void exchangePlayerControllerData(PlayerController inputController) {
+        players = inputController.getPlayers();
+        currentPlayer = inputController.getCurrentPlayerIndex();
+    }
+
     public ArrayList<Player> getPlayers() {
         return players;
     }
+    public void upgradePropertyList(PropertySquare property, Player player) {
+        player.addSquare(property);
+    }
+    public void upgradeUtilityList(UtilitySquare utility, Player player) {
+        player.getUtilityList().add(utility);
+    }
+    public void addCardToCurrentPlayer(Card card) {
+        getCurrentPlayer().addCard(card);
+    }
+
 
 }

@@ -109,19 +109,44 @@ public class GameEngine {
         }
 
     }
-    /**public ArrayList<Integer> rollDice() {
+    public ArrayList<Integer> rollDice() {
         regularDie.roll(2);
         ArrayList<Integer> list = new ArrayList<Integer>(3);
         list.add(regularDie.getLastValues().get(0));
         list.add(regularDie.getLastValues().get(1));
         if (regularDie.getLastValues().get(0) == regularDie.getLastValues().get(1)) {
             doublesCnt++;
-            if (doublesCnt == 3) {
-                CommunicationController.getInstance().sendClientMessage("penalty");
-            }
         }
         return list;
-    }**/
+    }
+    public void buy() {
+        //playerController.getCurrentPlayer().setTargetPosition(86);
+        //domainBoard.getSquareAt(86).evaluateSquare(this);
+        Player currentPlayer = playerController.getCurrentPlayer();
+        Square square = domainBoard.getSquareAt(currentPlayer.getTargetPosition());
+        String type = square.getType();
+
+        if (type.equals("PropertySquare") && !((PropertySquare) square).isOwned()) {
+            if (moneyController.hasEnoughMoney(currentPlayer, ((PropertySquare) square).getPrice())) {
+                moneyController.decreaseMoney(currentPlayer, ((PropertySquare) square).getPrice());
+                playerController.upgradePropertyList((PropertySquare) square, currentPlayer);
+                ((PropertySquare) square).setOwner(currentPlayer);
+            }
+        } else if (type.equals("UtilitySquare")) {
+            UtilitySquare utilitySquare = (UtilitySquare) square;
+            if (moneyController.hasEnoughMoney(currentPlayer, utilitySquare.getPrice())) {
+                moneyController.decreaseMoney(currentPlayer, utilitySquare.getPrice());
+                playerController.upgradeUtilityList(utilitySquare, currentPlayer);
+                utilitySquare.setOwner(currentPlayer);
+            }
+        }
+    }
+    public void nextTurn() {
+        playerController.nextPlayer();
+        doublesCnt = 0;
+        publishEvent("rollDice");
+        publishEvent("refresh");
+    }
     public void resume() {
         paused = false;
         System.out.println("Game Engine: Game resumed");
@@ -155,6 +180,100 @@ public class GameEngine {
 
         return false;
     }
+    public void playCard() {
+
+    }
+    public void drawCard() {
+        Player currentPlayer = playerController.getCurrentPlayer();
+        Square square = domainBoard.getSquareAt(currentPlayer.getTargetPosition());
+        Card card;
+        String type = square.getType();
+
+        if (type.equals("ChanceCardSquare")) {
+            card = domainBoard.getChanceCards().remove();
+
+            if (card != null) {
+                publishEvent("message/" + "[System]: " + currentPlayer.getName() + " drew " + card.getTitle());
+                if (card.getImmediate()) {
+                    card.playCard(this);
+                    domainBoard.getChanceCards().add(card);
+                } else {
+                    playerController.addCardToCurrentPlayer(card);
+                }
+            }
+
+            if (regularDie.getLastValues().get(0) == regularDie.getLastValues().get(1)) {
+                publishEvent("doubles");
+            } else {
+                publishEvent("endTurn");
+            }
+        } else {
+            System.out.println("Error: drawCard has been called while player is outside Chance square.");
+        }
+    }
+
+    public boolean tryImproveProperty() {
+        if (!isMyTurn()) {
+            return false;
+        }
+
+        while (chosenSquareIndex == -1) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException er) {
+                er.printStackTrace();
+            }
+        }
+
+        Player currentPlayer = playerController.getCurrentPlayer();
+        Square square = domainBoard.getSquareAt(getChosenSquareIndex());
+
+        if (square.getType().equals("PropertySquare")) {
+
+            PropertySquare propertySquare = ((PropertySquare) square);
+            HashMap<String, ArrayList<PropertySquare>> propertyCardsMap = currentPlayer.getPropertyCardsMap();
+
+            if (propertyCardsMap != null) {
+                if (propertyCardsMap.get(propertySquare.getColor()) != null) {
+                    if (!propertySquare.hasHotel() && propertySquare.numHouses() != 4) {
+                        if (propertyCardsMap.get(propertySquare.getColor()).size() >= 2) {
+                            publishEvent("improve/" + chosenSquareIndex);
+                            return true;
+                        }
+                    } else if (propertySquare.hasHotel() || propertySquare.numHouses() == 4) {
+                        if (propertyCardsMap.get(propertySquare.getColor()).size() >= 3) {
+                            publishEvent("improve/" + chosenSquareIndex);
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        setSquareUnselected();
+        return false;
+    }
+    public void improveProperty(int propertySquareIndex) {
+        Square square = domainBoard.getSquareAt(propertySquareIndex);
+        PropertySquare propertySquare = ((PropertySquare) square);
+        System.out.println("Chose " + propertySquare.getName());
+        Player currentPlayer = playerController.getCurrentPlayer();
+        MoneyController.getInstance().decreaseMoney(currentPlayer, propertySquare.getRentList()[8]);
+        propertySquare.improve();
+        setSquareUnselected();
+        publishEvent("refresh");
+    }
+    public void downgradeProperty(int propertySquareIndex) {
+        Square currentSquare = getDomainBoard().getSquareAt(propertySquareIndex);
+        PropertySquare propertySquare = ((PropertySquare) currentSquare);
+        if (propertySquare.isOwned()) {
+            if (propertySquare.numHouses() > 0  )
+                propertySquare.downgrade();
+        }
+        setSquareUnselected();
+        publishEvent("refresh");
+    }
+
 
     public LinkedList<Integer> calculatePath() {
         publishEvent("refresh");

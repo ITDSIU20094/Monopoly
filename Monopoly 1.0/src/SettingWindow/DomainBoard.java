@@ -23,20 +23,7 @@ public class DomainBoard implements Serializable {
         createCards();
 
     }
-    /**private void createCardsReal() {
-
-        // Creates an ArrayList of incrementing integers from 0 to CClength, then shuffles it to create the card list in random order.
-        // indexList is to be pushed to servers for card generation info
-        int CCLength = cardFactory.CCCard_names.length;
-        ArrayList<Integer> CCindexList = new ArrayList<Integer>(CCLength);
-        for (int index = 0; index < CCLength; index++) {
-            CCindexList.add(index);
-        }
-        Collections.shuffle(CCindexList);
-        for (int i = 0; i < CCLength; i++) {
-            CCCards.add(cardFactory.createCCCard(CCindexList.get(i)));
-        }
-        // same goes for chance cards
+    private void createCardsReal() {
         int ChanceLength = cardFactory.ChanceCard_names.length;
         ArrayList<Integer> ChanceIndexList = new ArrayList<Integer>(ChanceLength);
         for (int index = 0; index < ChanceLength; index++) {
@@ -47,7 +34,7 @@ public class DomainBoard implements Serializable {
             ChanceCards.add(cardFactory.createChanceCard(ChanceIndexList.get(j)));
         }
 
-    }**/
+    }
 
     private void createCards() {
     }
@@ -75,6 +62,16 @@ public class DomainBoard implements Serializable {
         domainSquareMap = domainBoard.getSquareMap();
 
     }
+    public Queue<Card> getChanceCards() {
+        return ChanceCards;
+    }
+
+
+    public void setChanceCards(Queue<Card> chanceCards) {
+        ChanceCards = chanceCards;
+    }
+
+
 
 
 }

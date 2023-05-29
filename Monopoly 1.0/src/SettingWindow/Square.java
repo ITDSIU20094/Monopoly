@@ -26,7 +26,7 @@ public abstract class Square implements Serializable {
     }
 
 
-    private void setFlyover(boolean b) {
+    public void setFlyover(boolean b) {
         this.flyover = b;
     }
 
