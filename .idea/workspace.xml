@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="457fe056-dc54-44db-a7a7-69fc78f756d5" name="Changes" comment="">
+<<<<<<< HEAD
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Setting1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Setting1.java" afterDir="false" />
+=======
+=======
+>>>>>>> 827af5b250c0ae80bd6c31ba54d01baf394c5517
+      <change afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Animator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monopoly/src/Drawable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Drawable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Setting.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Setting.java" afterDir="false" />
+<<<<<<< HEAD
+>>>>>>> 827af5b250c0ae80bd6c31ba54d01baf394c5517
+=======
+>>>>>>> 827af5b250c0ae80bd6c31ba54d01baf394c5517
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +39,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Monopoly/src/SettingWindow/Setting1.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="2Pm1j1sVlq6RYufvNPjZJIpTxo7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -39,6 +59,30 @@
   }
 }]]></component>
   <component name="RunManager">
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Documents/Git Hub/Monopoly&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Setting">
+>>>>>>> 827af5b250c0ae80bd6c31ba54d01baf394c5517
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Documents/Git Hub/Monopoly&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Setting">
+>>>>>>> 827af5b250c0ae80bd6c31ba54d01baf394c5517
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Monopoly" />
@@ -46,8 +90,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
+<<<<<<< HEAD
     <recent_temporary>
       <list>
+=======
+=======
+>>>>>>> 827af5b250c0ae80bd6c31ba54d01baf394c5517
+    <configuration name="Setting" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="SettingWindow.Setting" />
+      <module name="Monopoly" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SettingWindow.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Setting" />
+<<<<<<< HEAD
+>>>>>>> 827af5b250c0ae80bd6c31ba54d01baf394c5517
+=======
+>>>>>>> 827af5b250c0ae80bd6c31ba54d01baf394c5517
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -74,4 +143,23 @@
       </map>
     </option>
   </component>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 827af5b250c0ae80bd6c31ba54d01baf394c5517
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+<<<<<<< HEAD
+>>>>>>> 827af5b250c0ae80bd6c31ba54d01baf394c5517
+=======
+>>>>>>> 827af5b250c0ae80bd6c31ba54d01baf394c5517
 </project>
