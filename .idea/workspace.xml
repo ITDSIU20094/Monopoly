@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457fe056-dc54-44db-a7a7-69fc78f756d5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monopoly/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/ImageComboBoxRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/ImageComboBoxRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Setting.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monopoly/src/SettingWindow/Setting.java" afterDir="false" />
-    </list>
+    <list default="true" id="457fe056-dc54-44db-a7a7-69fc78f756d5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +34,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/User/Documents/Git Hub/Monopoly/Monopoly 1.0"
+    "last_opened_file_path": "C:/Users/phant/IdeaProjects/MonoTest"
   }
 }]]></component>
   <component name="RecentsManager">
