@@ -25,6 +25,9 @@ public class PlayerController implements Serializable {
         }
         return _instance;
     }
+    public void removePlayer(Player player) {
+        players.remove(player);
+    }
 
     public Player getCurrentPlayer() {
         if (players.size() > 0 && currentPlayer < players.size()) {

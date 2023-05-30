@@ -6,11 +6,20 @@ import java.util.ArrayList;
 
 public class CommunicationController {
     private static CommunicationController _instance;
+    private Client client;
     private GameEngine gameEngine = GameEngine.getInstance();
     private RegularDie regularDie = RegularDie.getInstance();
     private MoneyController moneyController = MoneyController.getInstance();
     private CommunicationController() {
 
+    }
+    public void createClient() {
+        client = new Client("Client");
+        client.start();
+    }
+
+    public void sendClientMessage(Object msg) {
+        client.sendMessage(msg);
     }
     public static CommunicationController getInstance() {
         if (_instance == null) {

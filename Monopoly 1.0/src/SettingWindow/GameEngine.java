@@ -270,6 +270,9 @@ public class GameEngine {
         setSquareUnselected();
         publishEvent("refresh");
     }
+    public String getLastDiceValues() {
+        return regularDie.getLastValues().get(0) + "/" + regularDie.getLastValues().get(1);
+    }
     public void sendToJail() {
         playerController.putInJail();
     }

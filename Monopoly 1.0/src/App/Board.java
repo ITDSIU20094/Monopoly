@@ -133,9 +133,7 @@ public class Board extends JFrame implements Observer {
         jPanel.add(rollButton);**/
 
         // Background Player
-        JLabel backgroundPlayer = ImageService.loadImage("a2.png");
-        backgroundPlayer.setBounds(600, 100, 400, 600);
-        jPanel.add(backgroundPlayer);
+
         //
 
         //Table of Player
@@ -161,10 +159,36 @@ public class Board extends JFrame implements Observer {
     private void printLastRollDiceNumbers() {
         System.out.println("Last Roll Dice Numbers: " + lastDiceOne + ", " + lastDiceTwo);
     }
+    private void proccessPath(String message) {
+        //path/[57, 58, 59, 60, 61, 62, 63]
+        ArrayList<Integer> path = new ArrayList<Integer>();
+        message = message.substring(6, message.length() - 1);
+        message = message.replaceAll("\\s+", "");
+        String[] parts = message.split(",");
+        for (String string : parts) {
+            path.add(Integer.parseInt(string));
+        }
+        currentPath = path;
+    }
 
     @Override
     public void onEvent(String message) {
-
+        if (message.equals("initializePawns")) {
+            initializePawns();
+            repaint();
+        } else if (message.contains("path")) {
+            proccessPath(message);
+            pawnList.get(playerController.getCurrentPlayerIndex()).setPath(currentPath);
+        } else if (message.contains("teleport")) {
+            currentPath.clear();
+            currentPath.add(playerController.getCurrentPlayer().getTargetPosition());
+            playerController.getCurrentPlayer().setPosition(playerController.getCurrentPlayer().getTargetPosition());
+            pawnList.get(playerController.getCurrentPlayerIndex()).setPath(currentPath);
+        } else if (message.contains("refresh")) {
+            repaint();
+        } else if (message.contains("improve/")) {
+            CommunicationController.getInstance().sendClientMessage(message);
+        }
     }
 
     public static Board instance;
@@ -304,8 +328,8 @@ public class Board extends JFrame implements Observer {
     }
     /**public void paint(Graphics g) {
         //g.setColor(color);
-        g.fillRect(position.x, position.y, length, length);
-        g.drawImage(image, position.x, position.y, length, length, null);
+        //g.fillRect(position.x, position.y, length, length);
+        //g.drawImage(image, position.x, position.y, length, length, null);
 
         drawBuildings(g);
     }**/
@@ -320,7 +344,27 @@ public class Board extends JFrame implements Observer {
         repaint();
     }
     public void drawBuildings(Graphics g) {
-
+        for (int i = 0; i < 40; i++) {
+            Square currentSquare = gameEngine.getDomainBoard().getSquareAt(i);
+            if (currentSquare != null && "PropertySquare".equals(currentSquare.getType())) {
+                int numHouses = ((PropertySquare) currentSquare).numHouses();
+                Point[] points = squareMap.get(i);
+                Point center = new Point((points[0].x + points[1].x) / 2,
+                        (points[0].y + points[1].y) / 2);
+                if (numHouses != 0) {
+                    if (numHouses == 1)
+                        g.fillOval(center.x, center.y, 5, 5);
+                    else if (numHouses == 2) {
+                        g.fillOval(center.x, center.y, 5, 5);
+                        g.fillOval(center.x - 6, center.y, 5, 5);
+                    } else if (numHouses == 3) {
+                        g.fillOval(center.x, center.y, 5, 5);
+                        g.fillOval(center.x - 6, center.y, 5, 5);
+                        g.fillOval(center.x - 12, center.y, 5, 5);
+                    }
+                }
+            }
+        }
     }
 
 }
