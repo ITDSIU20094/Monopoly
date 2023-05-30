@@ -1,4 +1,4 @@
-package SettingWindow;
+package UI;
 
 public class DefaultSetting {
     private String playerAvatar = "Hat.png";

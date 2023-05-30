@@ -1,4 +1,6 @@
-package SettingWindow;
+package UI;
+import Model.GameEngine;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Enumeration;

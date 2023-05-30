@@ -1,4 +1,4 @@
-package SettingWindow;
+package UI;
 
 
 import java.awt.Component;

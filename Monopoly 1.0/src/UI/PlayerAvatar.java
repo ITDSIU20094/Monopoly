@@ -1,4 +1,4 @@
-package SettingWindow;
+package UI;
 
 
 import javax.swing.*;

@@ -1,4 +1,5 @@
-package App;
+package UI;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,7 +21,7 @@ public class AppWindow extends JFrame {
                                 EventQueue.invokeLater(new Runnable() {
                                         @Override
                                         public void run() {
-                                                new joinGame().setVisible(true);
+                                                new Board().setVisible(true);
                                         }
                                 });
                         }
