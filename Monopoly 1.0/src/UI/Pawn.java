@@ -1,5 +1,4 @@
 package UI;
-import App.Board;
 import Model.Player;
 import SettingWindow.PlayerController;
 

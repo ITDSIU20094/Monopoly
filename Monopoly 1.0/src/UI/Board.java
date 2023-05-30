@@ -1,11 +1,11 @@
-package App;
+package UI;
+import App.ImageService;
 import Controller.CommunicationController;
 import Domain.Observer;
 import Model.GameEngine;
 import Model.Player;
 import Model.Square.PropertySquare;
 import Model.Square.Square;
-import UI.Pawn;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

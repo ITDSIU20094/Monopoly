@@ -1,5 +1,4 @@
 package UI;
-import App.Board;
 
 import javax.swing.*;
 import java.awt.*;
