@@ -1,12 +1,16 @@
 package App;
-import SettingWindow.*;
+import Controller.CommunicationController;
+import Domain.Observer;
+import Model.GameEngine;
+import Model.Player;
+import Model.Square.PropertySquare;
+import Model.Square.Square;
+import UI.Pawn;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -16,8 +20,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import java.util.Random;
 
 public class Board extends JFrame implements Observer {
     private Image image;

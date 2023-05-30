@@ -1,5 +1,8 @@
 package SettingWindow;
 
+import Controller.CommunicationController;
+import Model.GameEngine;
+
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
