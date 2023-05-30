@@ -1,7 +1,7 @@
-package Model.Square;
+package Domain.Model.Square;
 
-import Model.GameEngine;
-import Model.Player;
+import Domain.Model.GameEngine;
+import Domain.Model.Player;
 
 public class JailSquare extends Square {
 

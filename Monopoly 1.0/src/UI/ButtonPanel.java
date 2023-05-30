@@ -1,7 +1,7 @@
 package UI;
 
-import Controller.CommunicationController;
-import Model.GameEngine;
+import Domain.Controller.CommunicationController;
+import Domain.Model.GameEngine;
 
 import javax.swing.*;
 import java.awt.*;

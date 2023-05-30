@@ -1,11 +1,12 @@
 package UI;
 import App.ImageService;
-import Controller.CommunicationController;
+import Domain.Controller.CommunicationController;
 import Domain.Observer;
-import Model.GameEngine;
-import Model.Player;
-import Model.Square.PropertySquare;
-import Model.Square.Square;
+import Domain.Model.GameEngine;
+import Domain.Model.Player;
+import Domain.Model.Square.PropertySquare;
+import Domain.Model.Square.Square;
+import Domain.Controller.PlayerController;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

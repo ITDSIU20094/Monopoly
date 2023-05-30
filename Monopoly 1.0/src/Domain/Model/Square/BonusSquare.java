@@ -1,8 +1,8 @@
-package Model.Square;
+package Domain.Model.Square;
 
-import Model.GameEngine;
-import Model.Player;
-import SettingWindow.MoneyController;
+import Domain.Model.GameEngine;
+import Domain.Model.Player;
+import Domain.Controller.MoneyController;
 
 public class BonusSquare extends Square {
 

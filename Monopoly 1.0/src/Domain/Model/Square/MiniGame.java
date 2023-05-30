@@ -1,6 +1,6 @@
-package Model.Square;
+package Domain.Model.Square;
 
-import Model.GameEngine;
+import Domain.Model.GameEngine;
 
 public class MiniGame extends Square {
     public MiniGame(String t , String n) {

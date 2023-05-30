@@ -1,6 +1,6 @@
-package Model.Cards;
+package Domain.Model.Cards;
 
-import Model.GameEngine;
+import Domain.Model.GameEngine;
 import Domain.Model.Cards.iCard;
 
 import java.io.Serializable;

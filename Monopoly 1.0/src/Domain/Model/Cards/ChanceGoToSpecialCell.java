@@ -1,7 +1,8 @@
-package Model.Cards;
+package Domain.Model.Cards;
 
-import Model.Cards.ChanceCard;
-import Model.GameEngine;
+import Domain.Controller.PlayerController;
+import Domain.Model.Cards.ChanceCard;
+import Domain.Model.GameEngine;
 import Model.Player;
 
 public class ChanceGoToSpecialCell extends ChanceCard {

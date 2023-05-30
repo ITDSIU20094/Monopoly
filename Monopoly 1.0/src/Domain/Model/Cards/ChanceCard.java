@@ -1,7 +1,7 @@
-package Model.Cards;
+package Domain.Model.Cards;
 
 import Model.Cards.Card;
-import Model.GameEngine;
+import Domain.Model.GameEngine;
 
 public abstract class ChanceCard extends Card {
     public ChanceCard(String title, boolean isImmediate) {

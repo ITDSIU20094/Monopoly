@@ -1,4 +1,4 @@
-package Model.Cards;
+package Domain.Model.Square;
 
 import Model.Square.Square;
 

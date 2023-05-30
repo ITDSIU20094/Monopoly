@@ -1,9 +1,8 @@
-package Model.Square;
+package Domain.Model.Square;
 
-import Model.GameEngine;
-import SettingWindow.MoneyController;
-import SettingWindow.PlayerController;
-import Model.Cards.SpecialCell;
+import Domain.Model.GameEngine;
+import Domain.Controller.MoneyController;
+import Domain.Controller.PlayerController;
 
 public class BusCell extends SpecialCell {
     private MoneyController moneyController = MoneyController.getInstance();

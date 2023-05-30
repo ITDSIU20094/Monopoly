@@ -1,7 +1,7 @@
-package SettingWindow;
+package Domain.Server;
 
-import Controller.CommunicationController;
-import Model.GameEngine;
+import Domain.Controller.CommunicationController;
+import Domain.Model.GameEngine;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

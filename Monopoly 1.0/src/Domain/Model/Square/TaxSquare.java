@@ -1,8 +1,9 @@
-package Model.Square;
+package Domain.Model.Square;
 
-import Model.GameEngine;
-import Model.Player;
-import Model.Square.Square;
+import Domain.Model.GameEngine;
+import Domain.Model.Player;
+import Domain.Controller.PlayerController;
+import Domain.Controller.MoneyController;
 
 public class TaxSquare extends Square {
     public TaxSquare(String n, String t) {

@@ -1,6 +1,6 @@
-package Model;
+package Domain.Model;
 
-import Model.Square.*;
+import Domain.Model.Square.*;
 
 import java.io.Serializable;
 

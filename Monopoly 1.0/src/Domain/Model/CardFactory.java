@@ -1,6 +1,7 @@
-package Model;
+package Domain.Model;
 
-import Model.Cards.*;
+import Domain.Model.Cards.*;
+import Domain.Model.Cards.Card;
 
 import java.io.Serializable;
 
@@ -23,7 +24,7 @@ public class CardFactory implements Serializable {
     public boolean goodLuckNextTime = true;
     public boolean receiveArollTurn = true;
 
-    public ChanceCard createChanceCard(int index) {
+    public Card createChanceCard(int index) {
         switch (index) {
             case 0:
                 return new ChanceGoToSpecialCell(ChanceCard_names[index],goToSpecialCell);

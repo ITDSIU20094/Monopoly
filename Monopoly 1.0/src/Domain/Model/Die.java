@@ -1,4 +1,4 @@
-package Model;
+package Domain.Model;
 
 import java.util.ArrayList;
 import java.util.Random;

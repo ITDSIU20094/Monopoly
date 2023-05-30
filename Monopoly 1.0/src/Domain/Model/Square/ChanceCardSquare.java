@@ -1,6 +1,6 @@
-package Model.Square;
+package Domain.Model.Square;
 
-import Model.GameEngine;
+import Domain.Model.GameEngine;
 
 public class ChanceCardSquare extends Square {
 

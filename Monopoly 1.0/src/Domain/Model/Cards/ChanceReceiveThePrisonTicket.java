@@ -1,7 +1,7 @@
-package Model.Cards;
+package Domain.Model.Cards;
 
-import Model.Cards.ChanceCard;
-import Model.GameEngine;
+import Domain.Model.Cards.ChanceCard;
+import Domain.Model.GameEngine;
 
 public class ChanceReceiveThePrisonTicket extends ChanceCard {
     public ChanceReceiveThePrisonTicket(String title, boolean isImmediate) {

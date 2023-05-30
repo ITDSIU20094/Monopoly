@@ -1,7 +1,7 @@
-package Model.Cards;
+package Domain.Model.Cards;
 
-import Model.Cards.ChanceCard;
-import Model.GameEngine;
+import Domain.Model.Cards.ChanceCard;
+import Domain.Model.GameEngine;
 
 public class GoodLuckNextTime extends ChanceCard {
     public GoodLuckNextTime(String title, boolean isImmediate) {

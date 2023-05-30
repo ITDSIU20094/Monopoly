@@ -1,6 +1,7 @@
-package Model.Square;
+package Domain.Model.Square;
 
-import Model.GameEngine;
+import Domain.Model.GameEngine;
+import Domain.Model.Square.*;
 
 public class Beach extends Square {
     public Beach(String squareName, String goSquare) {

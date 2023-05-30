@@ -1,6 +1,6 @@
-package SettingWindow;
+package Domain.Controller;
 
-import Model.Player;
+import Domain.Model.Player;
 
 import java.io.Serializable;
 

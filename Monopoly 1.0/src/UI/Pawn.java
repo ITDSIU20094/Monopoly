@@ -1,6 +1,6 @@
 package UI;
-import Model.Player;
-import SettingWindow.PlayerController;
+import Domain.Model.Player;
+import Domain.Controller.PlayerController;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

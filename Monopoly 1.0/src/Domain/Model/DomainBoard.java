@@ -1,7 +1,7 @@
-package Model;
+package Domain.Model;
 
-import Model.Cards.Card;
-import Model.Square.Square;
+import Domain.Model.Cards.Card;
+import Domain.Model.Square.Square;
 
 import java.io.Serializable;
 import java.util.*;
