@@ -36,8 +36,9 @@ public class Player implements Serializable {
         this.path = path;
     }
 
-
-
+    public void receiveMoney(int amount){
+        money += amount;
+    }
     public boolean isInJail() {
         return inJail;
     }

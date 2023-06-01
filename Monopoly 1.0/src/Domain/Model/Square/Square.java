@@ -8,6 +8,8 @@ public abstract class Square implements Serializable {
     private String name;
     private String type;
     private boolean flyover;
+    public Square(){
+    }
 
     public Square(String name, String type) {
         this.name = name;
