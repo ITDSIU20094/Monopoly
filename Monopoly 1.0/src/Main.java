@@ -1,4 +1,4 @@
-import App.AppWindow;
+import UI.AppWindow;
 import javax.swing.*;
 
 public class Main {
