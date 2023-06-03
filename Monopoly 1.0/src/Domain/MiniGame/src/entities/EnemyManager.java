@@ -26,11 +26,13 @@ public class EnemyManager {
 	}
 
 	public void update(int[][] lvlData, Player player) {
-		for (Crabby c : crabbies)
+		for (Crabby c : crabbies){
 			if (c.isActive()) {
 				c.update(lvlData, player);
 			}
-		if (player.hitbox.x>=2200)
+		}
+		System.out.print(player.hitbox.x);
+		if (player.hitbox.x>=1675)
 			playing.setLevelCompleted(true);
 	}
 
