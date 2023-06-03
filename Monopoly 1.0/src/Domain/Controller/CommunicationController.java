@@ -1,9 +1,10 @@
-package Controller;
+package Domain.Controller;
 
-import Model.RegularDie;
-import Model.DomainBoard;
-import Model.GameEngine;
-import SettingWindow.*;
+import Domain.Model.*;
+
+import Domain.Server.Client;
+import Domain.Controller.MoneyController;
+import Domain.Controller.PlayerController;
 
 import java.util.ArrayList;
 

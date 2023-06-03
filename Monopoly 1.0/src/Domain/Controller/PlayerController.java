@@ -1,9 +1,9 @@
-package SettingWindow;
+package Domain.Controller;
 
-import Model.Cards.Card;
-import Model.Player;
-import Model.Square.PropertySquare;
-import Model.Square.UtilitySquare;
+import Domain.Model.Cards.Card;
+import Domain.Model.Player;
+import Domain.Model.Square.PropertySquare;
+import Domain.Model.Square.UtilitySquare;
 
 import java.io.Serializable;
 import java.util.ArrayList;

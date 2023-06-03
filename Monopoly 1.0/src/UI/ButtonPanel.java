@@ -1,7 +1,7 @@
 package UI;
 
-import Controller.CommunicationController;
-import Model.GameEngine;
+import Domain.Controller.CommunicationController;
+import Domain.Model.GameEngine;
 
 import javax.swing.*;
 import java.awt.*;
@@ -68,7 +68,7 @@ public class ButtonPanel extends JPanel {
 
         playCardButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //communicationController.sendClientMessage("playCard");
+                communicationController.sendClientMessage("playCard");
                 playCardButton.setEnabled(false);
             }
         });

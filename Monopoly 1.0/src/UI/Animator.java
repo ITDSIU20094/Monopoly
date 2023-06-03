@@ -1,5 +1,5 @@
 package UI;
-import Model.GameEngine;
+import Domain.Model.GameEngine;
 
 import javax.swing.*;
 import java.awt.*;

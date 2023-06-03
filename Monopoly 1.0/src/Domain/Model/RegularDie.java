@@ -1,4 +1,5 @@
-package Model;
+package Domain.Model;
+
 
 public class RegularDie extends Die {
     private static RegularDie _instance;

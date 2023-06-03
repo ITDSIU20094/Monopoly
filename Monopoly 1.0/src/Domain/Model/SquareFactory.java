@@ -1,6 +1,7 @@
-package Model;
+package Domain.Model;
 
-import Model.Square.*;
+import Domain.MiniGame.src.main.Game;
+import Domain.Model.Square.*;
 
 import java.io.Serializable;
 
@@ -113,7 +114,7 @@ public class SquareFactory implements Serializable {
             case 1:
                 return new PropertySquare(squareNames[index], "Property Square",BinhThuanPrice,BinhThuanColor,BinhThuanList);
             case 2, 15, 25, 35:
-                return new MiniGame(squareNames[index], "MiniGame");
+                return new MiniGame(squareNames[index], "MiniGame", new Game());
             case 3:
                 return new PropertySquare(squareNames[index], "Property Square",NinhThuậnPrice,NinhThuanColor,NinhThuanList);
             case 4, 38:

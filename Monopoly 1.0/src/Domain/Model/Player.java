@@ -1,8 +1,8 @@
-package Model;
+package Domain.Model;
 
-import Model.Cards.Card;
-import Model.Square.PropertySquare;
-import Model.Square.UtilitySquare;
+import Domain.Model.Cards.Card;
+import Domain.Model.Square.PropertySquare;
+import Domain.Model.Square.UtilitySquare;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -36,8 +36,9 @@ public class Player implements Serializable {
         this.path = path;
     }
 
-
-
+    public void receiveMoney(int amount){
+        money += amount;
+    }
     public boolean isInJail() {
         return inJail;
     }

@@ -1,7 +1,7 @@
 package UI;
 
-import Model.RegularDie;
-import Model.GameEngine;
+import Domain.Model.RegularDie;
+import Domain.Model.GameEngine;
 import Domain.Observer;
 
 import javax.imageio.ImageIO;

@@ -1,12 +1,13 @@
-package Model;
+package Domain.Model;
 
+
+import Domain.Model.Cards.Card;
+import Domain.Model.Square.UtilitySquare;
+import Domain.Controller.MoneyController;
+import Domain.Controller.PlayerController;
 import Domain.Observer;
-import Model.Cards.Card;
-import Model.Square.PropertySquare;
-import Model.Square.Square;
-import Model.Square.UtilitySquare;
-import SettingWindow.MoneyController;
-import SettingWindow.PlayerController;
+import Domain.Model.Square.PropertySquare;
+import Domain.Model.Square.Square;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -336,4 +337,5 @@ public class GameEngine {
         evaluateSquare();
         return path;
     }
+
 }

@@ -1,8 +1,8 @@
-package Model.Square;
+package Domain.Model.Square;
 
-import Model.GameEngine;
-import Model.Player;
-import Model.Square.Square;
+import Domain.Model.GameEngine;
+import Domain.Model.Player;
+import Domain.Model.Square.Square;
 
 public class UtilitySquare extends Square {
     private Player owner;
