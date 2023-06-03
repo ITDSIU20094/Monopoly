@@ -3,7 +3,7 @@ package Domain.Model.Cards;
 import Domain.Controller.PlayerController;
 import Domain.Model.Cards.ChanceCard;
 import Domain.Model.GameEngine;
-import Model.Player;
+import Domain.Model.Player;
 
 public class ChanceGoToSpecialCell extends ChanceCard {
 
