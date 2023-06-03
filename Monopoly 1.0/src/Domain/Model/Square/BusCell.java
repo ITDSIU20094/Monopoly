@@ -4,6 +4,9 @@ import Domain.Model.GameEngine;
 import Domain.Controller.MoneyController;
 import Domain.Controller.PlayerController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BusCell extends SpecialCell {
     private MoneyController moneyController = MoneyController.getInstance();
     private PlayerController playerController = PlayerController.getInstance();
@@ -14,7 +17,10 @@ public class BusCell extends SpecialCell {
 
     @Override
     public void evaluateSquare(GameEngine gameEngine) {
-        moneyController.decreaseMoney(playerController.getCurrentPlayer(),busFee);
+        if(moneyController.hasEnoughMoney(playerController.getCurrentPlayer(),busFee)) {
+            List<Square> availableSquares = new ArrayList<>();
+
+        }
 
     }
 
