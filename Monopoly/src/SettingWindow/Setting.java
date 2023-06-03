@@ -1,9 +1,17 @@
 package SettingWindow;
 
+<<<<<<< HEAD
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.util.List;
+
+
+=======
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Objects;
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
 import javax.swing.*;
 
 
@@ -11,6 +19,20 @@ public class Setting extends JFrame {
     private static PlayerAvatar avatar;
     private static int numPlayers;
     private static int numTurns;
+<<<<<<< HEAD
+
+
+    public Setting() {
+        initComponents();
+    }
+
+
+    private void initComponents() {
+
+        JPanel jPanel1 = new JPanel();
+        JLabel jLabel1 = new JLabel();
+        
+=======
     private JButton playbtn;
     private JButton defaultbtn;
     private JLabel backgroundLabel;
@@ -25,13 +47,20 @@ public class Setting extends JFrame {
     private void initComponents() {
         JPanel jPanel1 = new JPanel();
         JLabel jLabel1 = new JLabel();
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
         JButton defaultbtn = new JButton();
         JButton playbtn = new JButton();
         JLabel jLabel2 = new JLabel();
 
+<<<<<<< HEAD
+        JComboBox<String> jComboBox1  = new JComboBox<>();
+        javax.swing.JLabel jLabel3 = new JLabel();
+        javax.swing.JLabel jLabel4 = new JLabel();
+=======
         jComboBox1  = new JComboBox<>();
         JLabel jLabel3 = new JLabel();
         JLabel jLabel4 = new JLabel();
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
         jSlider1 = new JSlider();
         jSlider2 = new JSlider();
         JLabel jLabel5 = new JLabel();
@@ -46,12 +75,15 @@ public class Setting extends JFrame {
         JLabel jLabel12 = new JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+<<<<<<< HEAD
+=======
         backgroundLabel = new JLabel();
         ImageIcon backgroundImage = new ImageIcon(Objects.requireNonNull(getClass().getResource("background2.jpg")));
         backgroundLabel.setIcon(backgroundImage);
         backgroundLabel.setBounds(0, 0, getWidth(), getHeight());
         this.add(backgroundLabel);
 
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -59,10 +91,17 @@ public class Setting extends JFrame {
         jLabel1.setToolTipText("");
 
         defaultbtn.setText("Default");
+<<<<<<< HEAD
+        defaultbtn.addActionListener(evt -> defaultbtnActionPerformed());
+
+        playbtn.setText("Play Game");
+        playbtn.addActionListener(evt -> playbtnActionPerformed());
+=======
         defaultbtn.addActionListener(this::defaultbtnActionPerformed);
 
         playbtn.setText("Play Game");
         playbtn.addActionListener(this::playbtnActionPerformed);
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", Font.PLAIN, 14)); // NOI18N
         jLabel2.setText("Number of Players :");
@@ -116,7 +155,11 @@ public class Setting extends JFrame {
                                                                 .addGap(27, 27, 27)
                                                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                                                         .addComponent(jSlider1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
+                                                                        .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
+=======
                                                                         .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
                                                                         .addComponent(defaultbtn)
                                                                         .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                                                                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -160,7 +203,11 @@ public class Setting extends JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+<<<<<<< HEAD
+                                                        .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+=======
                                                         .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
                                                         .addComponent(jLabel3))
                                                 .addGap(72, 72, 72)
                                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
@@ -191,6 +238,12 @@ public class Setting extends JFrame {
 
         jSlider1.setMinimum(1);
         jSlider1.setMaximum(4);
+<<<<<<< HEAD
+        jSlider1.setMajorTickSpacing(1);
+        jSlider2.setMinimum(30);
+        jSlider2.setMaximum(50);
+        jSlider2.setMajorTickSpacing(10);
+=======
         jSlider1.setPaintTicks(true);
         jSlider1.setPaintTrack(true);
         jSlider1.setMajorTickSpacing(1);
@@ -203,6 +256,7 @@ public class Setting extends JFrame {
         jSlider2.setMinorTickSpacing(1);
         jSlider2.setPaintLabels(true);
 
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -218,6 +272,47 @@ public class Setting extends JFrame {
                         .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+<<<<<<< HEAD
+        pack();
+    }
+
+    private void defaultbtnActionPerformed() {
+        PlayerAvatar defaultAvatar = new PlayerAvatar("hat.png");
+        int defaultNumPlayers = 4;
+        int defaultNumTurns = 30;
+
+        //Game game = new Game(defaultAvatar, defaultNumPlayers, defaultNumTurns);
+        //game.start();
+    }
+
+    private void jComboBox1ActionPerformed(ActionEvent e) {
+        JComboBox<String> source = (JComboBox<String>) e.getSource();
+        String selectedValue = (String) source.getSelectedItem();
+        if (selectedValue.equals("Tank")) {
+            // Set AvatarPlayer image to "Tank.png"
+            ImageIcon avatarIcon = new ImageIcon(getClass().getResource("/Monopoly/.assets/Pawn/Tank.png"));
+            //avatar.setIcon(avatarIcon);
+        }
+    }
+
+    private void playbtnActionPerformed() {
+        String selectedAvatar = (String) jComboBox1.getSelectedItem();
+        int numPlayers = jSlider1.getValue();
+        int numTurns =  jSlider2.getValue();
+
+        PlayerAvatar avatar = new PlayerAvatar(selectedAvatar);
+        Setting.setAvatar(avatar);
+        Setting.setNumPlayers(numPlayers);
+        Setting.setNumTurns(numTurns);
+        // Thực hiện các thao tác khởi chạy trò chơi ở đây
+        //Game game = new Game(avatar, numPlayers, numTurns);
+        //game.start();
+    }
+
+
+    public static void setAvatar(PlayerAvatar avatar) {
+        Setting.avatar= avatar;
+=======
 
         pack();
     }
@@ -299,6 +394,7 @@ public class Setting extends JFrame {
     }
     public static void setAvatar(PlayerAvatar avatar){
         Setting.avatar = avatar;
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
     }
     public static void setNumPlayers(int numPlayers) {
         Setting.numPlayers = numPlayers;
@@ -307,6 +403,22 @@ public class Setting extends JFrame {
     public static void setNumTurns(int numTurns) {
         Setting.numTurns = numTurns;
     }
+<<<<<<< HEAD
+    public static void main(String[] args) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Setting().setVisible(true);
+            }
+        });
+    }
+
+    private JComboBox<String> jComboBox1;
+    private JSlider jSlider1;
+    private JSlider jSlider2;
+
+}
+=======
 
 }
 
+>>>>>>> 05292851b95f90c684febdc8225cb6106049e6df
