@@ -8,7 +8,6 @@ import Domain.Controller.PlayerController;
 import Domain.Observer;
 import Domain.Model.Square.PropertySquare;
 import Domain.Model.Square.Square;
-import Domain.Model.Square.UtilitySquare;
 
 import java.util.ArrayList;
 import java.util.HashMap;
