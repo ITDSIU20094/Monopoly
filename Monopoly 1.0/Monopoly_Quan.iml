@@ -8,6 +8,8 @@
       <sourceFolder url="file://$MODULE_DIR$/.assets/diceFaces" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/.assets/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/.assets/Squares" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/.assets/source" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
