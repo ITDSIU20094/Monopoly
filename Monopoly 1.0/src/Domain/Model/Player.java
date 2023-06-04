@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Player implements Serializable {
     private String name;
@@ -22,6 +23,7 @@ public class Player implements Serializable {
     private int position = 0;
     private ArrayList<Card> cardList;
     private ArrayList<PropertySquare> propertySquares;
+    private int botBehaviourNumber = 1;
     private ArrayList<UtilitySquare> utilityList;
     private HashMap<String, ArrayList<PropertySquare>> propertyCardsMap;
     public Player(String name) {
@@ -115,5 +117,51 @@ public class Player implements Serializable {
     public int getRentMultiplier()
     {
         return rentMultiplier;
+    }
+    public boolean repOk() {
+        if(name != null && money >= 0 && propertySquares != null && utilityList != null && cardList != null) {
+            return  true;
+        }
+        return false;
+    }
+
+    public void setBot()
+    {
+        this.bot = true;
+    }
+
+    public void setPerson()
+    {
+        this.bot = false;
+    }
+    @Override
+    public String toString() {
+        String playerProps = "";
+        for(PropertySquare pSq : this.getPropertySquares()) {
+            playerProps += pSq.toString() + "\n";
+        }
+        String playerUtils = "";
+        for(UtilitySquare uSq : this.getUtilityList()) {
+            playerUtils += uSq.getName() + "\n";
+        }
+        return "Name: " + this.getName() + "\n" +
+                "Money: " + this.getMoney() + "\n"+
+                "Properties: \n" + playerProps +
+                "Utilities: \n" + playerUtils +
+                "Is Bot? \t" + ((isBot()) ? "yes\nBehaviour Index:\t" + getBotBehaviourNumber() : "no") + "\n";
+
+
+    }
+    public int getBotBehaviourNumber() {
+        return botBehaviourNumber;
+    }
+
+    public void setBotBehaviourNumberManually(int botBehaviourNumber) {
+        this.botBehaviourNumber = botBehaviourNumber;
+    }
+
+    public void setBotBehaviourNumber() {
+        Random rand = new Random();
+        this.botBehaviourNumber = rand.nextInt(3) + 1;
     }
 }
