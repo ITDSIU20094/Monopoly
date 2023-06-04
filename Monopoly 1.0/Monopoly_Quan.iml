@@ -3,13 +3,13 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/.assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/.assets/Pawn" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/.assets/diceFaces" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/.assets/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/.assets/Squares" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/.assets/source" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/assets/Pawn" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/assets/Squares" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/assets/diceFaces" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/assets/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/assets/source" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

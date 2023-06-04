@@ -24,11 +24,7 @@ import java.util.List;
 
 public class Board extends JFrame implements Observer {
     private Image image;
-    private File imageSrc = new File("BoardGame.png");
-
-    private int lastDiceOne;
-    private int lastDiceTwo;
-    private JTextArea playerInfoTextArea;
+    private File imageSrc = new File("./Image/BoardGame.png");
     private Point position;
     private int length;
     private List<Pawn> pawnList;
@@ -48,151 +44,6 @@ public class Board extends JFrame implements Observer {
     private File P6Src = new File("Tank1.png");
     private File P7Src = new File("Car1.png");
     private File P8Src = new File("Boot1.png");
-
-
-
-    public Board() {
-        setTitle("Monopoly");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(1200, 740));
-        pack();
-        setResizable(false);
-        setLocationRelativeTo(null);
-        addGuiComponents();
-    }
-
-
-    private void addGuiComponents() {
-        JPanel jPanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                BufferedImage backgroundImage;
-                try {
-                    InputStream inputStream = ImageService.class.getResourceAsStream("BoardGame.png");
-
-                    backgroundImage = ImageIO.read(inputStream);
-                    g.drawImage(backgroundImage, 0, 0, null);
-                } catch (IOException e) {
-                    System.out.println("Error loading background image: " + e);
-                }
-            }
-        };
-        jPanel.setLayout(null);
-
-        // Dices
-        /**JLabel diceOneImg = ImageService.loadImage("dice1.png");
-        diceOneImg.setBounds(220, 250, 200, 200);
-        jPanel.add(diceOneImg);
-
-        JLabel diceTwoImg = ImageService.loadImage("dice2.png");
-        diceTwoImg.setBounds(280, 250, 200, 200);
-        jPanel.add(diceTwoImg);
-
-        // Roll Button
-        Random random = new Random();
-        JButton rollButton = new JButton("Roll");
-        rollButton.setBounds(870, 600, 90, 40);
-        rollButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                rollButton.setEnabled(false);
-                // roll 3 seconds
-                long startTime = System.currentTimeMillis();
-                Thread rollThread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        long endTime = System.currentTimeMillis();
-                        try {
-                            while ((endTime - startTime) / 1000F < 3) {
-                                int diceOne = random.nextInt(1, 7);
-                                int diceTwo = random.nextInt(1, 7);
-
-                                lastDiceOne = diceOne;
-                                lastDiceTwo = diceTwo;
-
-                                // update dice images
-                                ImageService.updateImage(diceOneImg, "dice" + diceOne + ".png");
-                                ImageService.updateImage(diceTwoImg, "dice" + diceTwo + ".png");
-
-                                repaint();
-                                revalidate();
-
-                                // sleep thread
-                                Thread.sleep(60);
-                                endTime = System.currentTimeMillis();
-                            }
-
-                            rollButton.setEnabled(true);
-                            printLastRollDiceNumbers();
-                        } catch (InterruptedException e) {
-                            System.out.println("Threading Error: " + e);
-                        }
-                    }
-                });
-                rollThread.start();
-            }
-        });
-        jPanel.add(rollButton);**/
-
-        // Background Player
-
-        //
-
-        //Table of Player
-        playerInfoTextArea = new JTextArea();
-        playerInfoTextArea.setEditable(false);
-        playerInfoTextArea.setBounds(800, 250, 300, 200);
-        playerInfoTextArea.setBackground(Color.lightGray);
-        jPanel.add(playerInfoTextArea);
-        initializePlayerInfo();
-        //
-        this.getContentPane().add(jPanel);
-    }
-    public int getLastValues(){
-        return lastDiceOne + lastDiceTwo ;
-    }
-
-    private void initializePlayerInfo() {
-        playerInfoTextArea.append("Player 1: \n");
-        playerInfoTextArea.append("Money: $1500\n");
-        playerInfoTextArea.append("Properties: Park Place");
-    }
-
-    private void printLastRollDiceNumbers() {
-        System.out.println("Last Roll Dice Numbers: " + lastDiceOne + ", " + lastDiceTwo);
-    }
-    private void proccessPath(String message) {
-        //path/[57, 58, 59, 60, 61, 62, 63]
-        ArrayList<Integer> path = new ArrayList<Integer>();
-        message = message.substring(6, message.length() - 1);
-        message = message.replaceAll("\\s+", "");
-        String[] parts = message.split(",");
-        for (String string : parts) {
-            path.add(Integer.parseInt(string));
-        }
-        currentPath = path;
-    }
-
-    @Override
-    public void onEvent(String message) {
-        if (message.equals("initializePawns")) {
-            initializePawns();
-            repaint();
-        } else if (message.contains("path")) {
-            proccessPath(message);
-            pawnList.get(playerController.getCurrentPlayerIndex()).setPath(currentPath);
-        } else if (message.contains("teleport")) {
-            currentPath.clear();
-            currentPath.add(playerController.getCurrentPlayer().getTargetPosition());
-            playerController.getCurrentPlayer().setPosition(playerController.getCurrentPlayer().getTargetPosition());
-            pawnList.get(playerController.getCurrentPlayerIndex()).setPath(currentPath);
-        } else if (message.contains("refresh")) {
-            repaint();
-        } else if (message.contains("improve/")) {
-            CommunicationController.getInstance().sendClientMessage(message);
-        }
-    }
 
     public static Board instance;
 
@@ -243,6 +94,41 @@ public class Board extends JFrame implements Observer {
             }
         });
     }
+
+
+    private void proccessPath(String message) {
+        //path/[57, 58, 59, 60, 61, 62, 63]
+        ArrayList<Integer> path = new ArrayList<Integer>();
+        message = message.substring(6, message.length() - 1);
+        message = message.replaceAll("\\s+", "");
+        String[] parts = message.split(",");
+        for (String string : parts) {
+            path.add(Integer.parseInt(string));
+        }
+        currentPath = path;
+    }
+
+    @Override
+    public void onEvent(String message) {
+        if (message.equals("initializePawns")) {
+            initializePawns();
+            repaint();
+        } else if (message.contains("path")) {
+            proccessPath(message);
+            pawnList.get(playerController.getCurrentPlayerIndex()).setPath(currentPath);
+        } else if (message.contains("teleport")) {
+            currentPath.clear();
+            currentPath.add(playerController.getCurrentPlayer().getTargetPosition());
+            playerController.getCurrentPlayer().setPosition(playerController.getCurrentPlayer().getTargetPosition());
+            pawnList.get(playerController.getCurrentPlayerIndex()).setPath(currentPath);
+        } else if (message.contains("refresh")) {
+            repaint();
+        } else if (message.contains("improve/")) {
+            CommunicationController.getInstance().sendClientMessage(message);
+        }
+    }
+
+
     private Point[] createPointArray(Point startRightBottom, Point startLeftTop) {
         return new Point[]{new Point(startRightBottom.x, startRightBottom.y),
                 new Point(startLeftTop.x, startLeftTop.y)};
@@ -330,9 +216,9 @@ public class Board extends JFrame implements Observer {
         repaint();
     }
     /**public void paint(Graphics g) {
-        //g.setColor(color);
-        //g.fillRect(position.x, position.y, length, length);
-        //g.drawImage(image, position.x, position.y, length, length, null);
+        g.setColor(color);
+        g.fillRect(position.x, position.y, length, length);
+        g.drawImage(image, position.x, position.y, length, length, null);
 
         drawBuildings(g);
     }**/
