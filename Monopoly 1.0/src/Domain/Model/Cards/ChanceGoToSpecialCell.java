@@ -8,7 +8,7 @@ import Domain.Model.Player;
 public class ChanceGoToSpecialCell extends ChanceCard {
 
     private PlayerController playerController = PlayerController.getInstance();
-
+    private int[] specialcells = {2,4,7,10,15,17,20,22,25,30,35,36,38};
 
     public ChanceGoToSpecialCell(String title, boolean isImmediate) {
         super(title, isImmediate);
@@ -19,25 +19,13 @@ public class ChanceGoToSpecialCell extends ChanceCard {
     public void playCard(GameEngine gameEngine) {
         Player currentPlayer = PlayerController.getInstance().getCurrentPlayer();
         if (gameEngine.isMyTurn() && !currentPlayer.isBot()) {
-            if (gameEngine.getChosenSquareIndex() == 7 ) {
-                gameEngine.publishEvent("teleport" + gameEngine.getChosenSquareIndex());
-                //gameEngine.publishEvent("drawCard");
-            } else if (gameEngine.getChosenSquareIndex() == 17) {
-                gameEngine.publishEvent("teleport" + gameEngine.getChosenSquareIndex());
-                //gameEngine.publishEvent("drawCard");
-            } else if (gameEngine.getChosenSquareIndex() == 22) {
-                gameEngine.publishEvent("teleport" + gameEngine.getChosenSquareIndex());
-                //gameEngine.publishEvent("drawCard");
-            } else if (gameEngine.getChosenSquareIndex() == 36) {
-                gameEngine.publishEvent("teleport" + gameEngine.getChosenSquareIndex());
-                //gameEngine.publishEvent("drawCard");
-            } else if (gameEngine.getChosenSquareIndex()== 4) {
-                gameEngine.publishEvent("teleport" + gameEngine.getChosenSquareIndex());
-            } else if (gameEngine.getChosenSquareIndex() == 38) {
-                gameEngine.publishEvent("teleport" + gameEngine.getChosenSquareIndex());
+            int choosenSquareIndex = gameEngine.getChosenSquareIndex();
+            for (int cell : specialcells) {
+                if (choosenSquareIndex == cell) {
+                    gameEngine.publishEvent("teleport" + choosenSquareIndex);
+                    break;
+                }
             }
         }
-
-
     }
 }
