@@ -145,6 +145,17 @@ public class GameEngine {
             }
         }
     }
+    public void improveSelectedProperty(PropertySquare p)    // This is added only for bots to use
+    {
+        HashMap<Integer, Square> squareMap = domainBoard.getSquareMap();
+        for (int i = 0; i < squareMap.size(); i++) {
+            if (squareMap.get(i).getName().equals(p.getName())) {
+                chosenSquareIndex = i;
+                tryImproveProperty();
+                return;
+            }
+        }
+    }
     public void nextTurn() {
         playerController.nextPlayer();
         doublesCnt = 0;
