@@ -1,14 +1,16 @@
 import UI.AppWindow;
 import javax.swing.*;
 
+import UI.Animator;
+import UI.AppWindow;
+
 public class Main {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                AppWindow appWindow = new AppWindow();
-                appWindow.setVisible(true);
-            }
-        });
+
+        AppWindow frame = new AppWindow();
+        frame.pack();
+        frame.setVisible(true);
+
+
     }
 }

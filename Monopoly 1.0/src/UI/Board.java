@@ -24,7 +24,6 @@ import java.util.List;
 
 public class Board extends JFrame implements Observer {
     private Image image;
-    private File imageSrc = new File("./Image/BoardGame.png");
     private Point position;
     private int length;
     private List<Pawn> pawnList;
@@ -60,6 +59,7 @@ public class Board extends JFrame implements Observer {
     }
     public Board(Point position, int length) {
         try {
+            File imageSrc = new File("BoardGame.png");
             image = ImageIO.read(imageSrc);
             image = image.getScaledInstance(length, length, Image.SCALE_SMOOTH);
         } catch (IOException e) {
@@ -215,13 +215,13 @@ public class Board extends JFrame implements Observer {
         playerList.forEach(player -> addNewPawn(player, pawnFiles.get(player.getPlaceHolder())));
         repaint();
     }
-    /**public void paint(Graphics g) {
-        g.setColor(color);
+    public void paint(Graphics g) {
+        //g.setColor(color);
         g.fillRect(position.x, position.y, length, length);
         g.drawImage(image, position.x, position.y, length, length, null);
 
         drawBuildings(g);
-    }**/
+    }
     public void addNewPawn(Player player, File file) {
 
         int xCoord = (squareMap.get(player.getTargetPosition())[0].x + squareMap.get(player.getTargetPosition())[1].x) / 2;
