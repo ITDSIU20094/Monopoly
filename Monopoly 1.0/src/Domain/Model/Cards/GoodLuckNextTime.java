@@ -10,6 +10,6 @@ public class GoodLuckNextTime extends ChanceCard {
 
     @Override
     public void playCard(GameEngine gameEngine) {
-
+        gameEngine.nextTurn();
     }
 }
