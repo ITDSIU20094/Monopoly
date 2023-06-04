@@ -1,8 +1,12 @@
 package UI;
 
 
+import Domain.Controller.PlayerController;
+import Domain.Model.Player;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.List;
 import javax.swing.*;
 
 
@@ -15,6 +19,8 @@ public class Setting extends JFrame {
     private JLabel backgroundLabel;
     private JComboBox jComboBox1;
     private JSlider jSlider1;
+    private int countMod = 0;
+    private JTextField textField;
     private JSlider jSlider2;
     public Setting() {
         initComponents();
@@ -225,6 +231,16 @@ public class Setting extends JFrame {
             Setting.setAvatar(avatar);
             Setting.setNumPlayers(numPlayers);
             Setting.setNumTurns(numTurns);
+
+            PlayerController playerController = PlayerController.getInstance();
+            List<Player> players = PlayerController.getInstance().getPlayers();
+            playerController.clearPlayers();
+            for( int i = 0; i < numPlayers; i++){
+                int randomID = Player.generateRandomID();
+                Player player = new Player(textField.getText(),randomID,countMod);
+                playerController.addPlayer(player);
+
+            }
             // Thực hiện các thao tác khởi chạy trò chơi ở đây
             //Game game = new joinGame(avatar, numPlayers, numTurns);
             //game.start();

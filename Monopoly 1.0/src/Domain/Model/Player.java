@@ -12,9 +12,11 @@ import java.util.Random;
 
 public class Player implements Serializable {
     private String name;
+    private String ClientID;
     private int money = 2000;
     private LinkedList<Integer> path = null;
     private boolean inJail;
+    private int ID;
     private boolean bot = false;
     private int rentMultiplier = 1;
     private int placeHolder;
@@ -26,13 +28,25 @@ public class Player implements Serializable {
     private int botBehaviourNumber = 1;
     private ArrayList<UtilitySquare> utilityList;
     private HashMap<String, ArrayList<PropertySquare>> propertyCardsMap;
-    public Player(String name) {
+    public Player(String name,int ID,int placeHolder) {
         this.name = name;
+        this.ID = ID;
         propertyCardsMap = new HashMap<>();
         propertySquares = new ArrayList<>();
         utilityList = new ArrayList<>();
         cardList = new ArrayList<>();
     }
+    public static int generateRandomID() {
+        Random random = new Random();
+        return random.nextInt(1,4);
+    }
+    public int getID(int i) {
+        return ID;
+    }
+    public void setClientID(String clientID) {
+        ClientID = clientID;
+    }
+
     public void setPath(LinkedList<Integer> path)
     {
         this.path = path;

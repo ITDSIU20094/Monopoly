@@ -30,6 +30,13 @@ public class PlayerController implements Serializable {
         }
         return _instance;
     }
+    public void addPlayer(Player player) {
+        players.add(player);
+    }
+    public void clearPlayers(){
+        players.clear();
+    }
+
     public void removePlayer(Player player) {
         players.remove(player);
     }
