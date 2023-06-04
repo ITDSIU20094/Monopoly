@@ -126,8 +126,6 @@ public class GameEngine {
         return list;
     }
     public void buy() {
-        //playerController.getCurrentPlayer().setTargetPosition(86);
-        //domainBoard.getSquareAt(86).evaluateSquare(this);
         Player currentPlayer = playerController.getCurrentPlayer();
         Square square = domainBoard.getSquareAt(currentPlayer.getTargetPosition());
         String type = square.getType();
@@ -300,7 +298,7 @@ public class GameEngine {
 
                 int placeToGo = connections.get(currentPos).get(0);
 
-                if (domainBoard.getSquareAt(currentPos).getType().equals("RailroadTransitSquare") && regularDiceTotal % 2 == 0) {
+                if (domainBoard.getSquareAt(currentPos).getType().equals("BusCell") && regularDiceTotal % 2 == 0) {
                     if (connections.get(currentPos).get(1) != -1) placeToGo = connections.get(currentPos).get(1);
                     else System.out.println("[GameEngine]: There seems to be a problem.");
                 }
