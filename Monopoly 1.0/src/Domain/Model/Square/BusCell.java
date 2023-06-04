@@ -7,7 +7,7 @@ import Domain.Controller.PlayerController;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BusCell extends SpecialCell {
+public class BusCell extends Square {
     private MoneyController moneyController = MoneyController.getInstance();
     private PlayerController playerController = PlayerController.getInstance();
     private int busFee = 100;
