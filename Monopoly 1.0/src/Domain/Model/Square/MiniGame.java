@@ -17,7 +17,7 @@ public class MiniGame extends Square {
 
     @Override
     public void evaluateSquare(GameEngine gameEngine) {
-
+        new Game();
 
     }
 
