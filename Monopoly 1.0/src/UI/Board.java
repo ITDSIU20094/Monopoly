@@ -58,14 +58,15 @@ public class Board extends JFrame implements Observer {
         return instance;
     }
     public Board(Point position, int length) {
+        instance = this ;
         try {
-            File imageSrc = new File("BoardGame.png");
+            File imageSrc = new File("BoardGame.jpg");
             image = ImageIO.read(imageSrc);
             image = image.getScaledInstance(length, length, Image.SCALE_SMOOTH);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        instance = this;
+
 
         this.position = position;
         this.length = length;
