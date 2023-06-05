@@ -5,6 +5,7 @@ import Domain.Controller.MoneyController;
 import Domain.Controller.PlayerController;
 import Domain.Model.Player;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,11 @@ public class BusCell extends Square {
             }
         }
 
+    }
+
+    @Override
+    public Option trigger(Player player) {
+        return null;
     }
 
 }

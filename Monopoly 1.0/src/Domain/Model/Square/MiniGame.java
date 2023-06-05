@@ -2,6 +2,9 @@ package Domain.Model.Square;
 
 import Domain.MiniGame.src.main.Game;
 import Domain.Model.GameEngine;
+import Domain.Model.Player;
+
+import javax.swing.text.html.Option;
 
 
 public class MiniGame extends Square {
@@ -14,7 +17,12 @@ public class MiniGame extends Square {
 
     @Override
     public void evaluateSquare(GameEngine gameEngine) {
+        new Game();
 
+    }
 
+    @Override
+    public Option trigger(Player player) {
+        return null;
     }
 }

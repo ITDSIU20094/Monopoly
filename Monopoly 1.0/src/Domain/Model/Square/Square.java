@@ -1,7 +1,9 @@
 package Domain.Model.Square;
 
 import Domain.Model.GameEngine;
+import Domain.Model.Player;
 
+import javax.swing.text.html.Option;
 import java.io.Serializable;
 
 public abstract class Square implements Serializable {
@@ -40,4 +42,6 @@ public abstract class Square implements Serializable {
 
 
     public abstract void evaluateSquare(GameEngine gameEngine);
+
+    public abstract Option trigger(Player player);
 }

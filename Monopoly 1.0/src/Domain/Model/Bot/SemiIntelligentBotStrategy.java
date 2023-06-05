@@ -1,10 +1,7 @@
 package Domain.Model.Bot;
 
 import Domain.Model.Player;
-import Domain.Model.Square.PropertySquare;
-import Domain.Model.Square.BusCell;
-import Domain.Model.Square.Square;
-import Domain.Model.Square.UtilitySquare;
+import Domain.Model.Square.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -32,8 +29,8 @@ public class SemiIntelligentBotStrategy extends BasicBotBehaviors implements Bot
         Square currentProp = gameEngine.getDomainBoard().getSquareAt(current.getTargetPosition());
         //System.out.println("The property that " + current.getName() + " stands on right now is:   " + currentProp.getName());
 
-        if (currentProp instanceof BusCell) {
-            sendMessage("A railroad? Those places are very profitable. Must buy!");
+        if (currentProp instanceof Beach) {
+            sendMessage("A Beach? Those places are very profitable. Must buy!");
             //buyAction(current);
         }
 
@@ -41,9 +38,9 @@ public class SemiIntelligentBotStrategy extends BasicBotBehaviors implements Bot
             sendMessage("A utility square? I heard that those places pay off in many years! Must stay away!");
             tryImproving(current);
         } else if (currentProp instanceof PropertySquare) {
-            if (currentProp.getName().equals("ST. CHARLES PLACE"))           // A card leads people here
+            if (currentProp.getName().equals("SaiGon"))           // A card leads people here
             {
-                sendMessage("St. Charles Place? That place is very profitable. Must buy!");
+                sendMessage("SaiGon? That place is very profitable. Must buy!");
                 buyAction(current);
             } else if (current.getPropertyCardsMap().get(((PropertySquare) currentProp).getColor()) != null)       // Current player has one of the properties of same colour, she can improve if she buys this!
             {
