@@ -4,6 +4,8 @@ import Domain.Model.GameEngine;
 import Domain.Model.Player;
 import Domain.Model.Square.Square;
 
+import javax.swing.text.html.Option;
+
 public class UtilitySquare extends Square {
     private Player owner;
     private int price;
@@ -36,6 +38,11 @@ public class UtilitySquare extends Square {
             int diceVal = gameEngine.getRegularDie().getLastValues().get(0) + gameEngine.getRegularDie().getLastValues().get(1) ;
             gameEngine.payRent(currentPlayer, this.getOwner(), calculateRent(diceVal));
         }
+    }
+
+    @Override
+    public Option trigger(Player player) {
+        return null;
     }
 
     public int getPrice() {

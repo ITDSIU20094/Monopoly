@@ -3,6 +3,8 @@ package Domain.Model.Square;
 import Domain.Model.GameEngine;
 import Domain.Model.Player;
 
+import javax.swing.text.html.Option;
+
 public class PropertySquare extends Square {
     private Player owner = null;
     private int price;
@@ -140,6 +142,12 @@ public class PropertySquare extends Square {
         }
 
     }
+
+    @Override
+    public Option trigger(Player player) {
+        return null;
+    }
+
     public boolean repOk() {
         if(this.getName() != null && price > 0 && color != null && rentFactor > 0 && rentList != null && rentList.length == 4) {
             for(int rentPrice : this.getRentList()) {
