@@ -24,11 +24,6 @@ import java.util.List;
 
 public class Board extends JFrame implements Observer {
     private Image image;
-    private File imageSrc = new File("BoardGame.png");
-
-    private int lastDiceOne;
-    private int lastDiceTwo;
-    private JTextArea playerInfoTextArea;
     private Point position;
     private int length;
     private List<Pawn> pawnList;
@@ -49,119 +44,59 @@ public class Board extends JFrame implements Observer {
     private File P7Src = new File("Car1.png");
     private File P8Src = new File("Boot1.png");
 
+    public static Board instance;
 
-
-    public Board() {
-        setTitle("Monopoly");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(1200, 740));
-        pack();
-        setResizable(false);
-        setLocationRelativeTo(null);
-        addGuiComponents();
+    public ArrayList<Integer> getCurrentPath() {
+        return currentPath;
     }
 
+    public HashMap<Integer, Point[]> getSquareMap() {
+        return squareMap;
+    }
 
-    private void addGuiComponents() {
-        JPanel jPanel = new JPanel() {
+    public static Board getInstance() {
+        return instance;
+    }
+    public Board(Point position, int length) {
+        instance = this ;
+        try {
+            File imageSrc = new File("BoardGame.jpg");
+            image = ImageIO.read(imageSrc);
+            image = image.getScaledInstance(length, length, Image.SCALE_SMOOTH);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        this.position = position;
+        this.length = length;
+        setPreferredSize(new Dimension(length, length));
+
+        pawnList = new ArrayList<>();
+        pawnFiles.add(P1Src);
+        pawnFiles.add(P2Src);
+        pawnFiles.add(P3Src);
+        pawnFiles.add(P4Src);
+        pawnFiles.add(P5Src);
+        pawnFiles.add(P6Src);
+        pawnFiles.add(P7Src);
+        pawnFiles.add(P8Src);
+        smallSide = length / 13;
+        initialPosition = new Point(9 * smallSide - 20, 9 * smallSide - 20);
+        gameEngine.subscribe(this);
+        initializeSquarePositions();
+
+        this.addMouseListener(new MouseAdapter() {
             @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                BufferedImage backgroundImage;
-                try {
-                    InputStream inputStream = ImageService.class.getResourceAsStream("BoardGame.png");
-
-                    backgroundImage = ImageIO.read(inputStream);
-                    g.drawImage(backgroundImage, 0, 0, null);
-                } catch (IOException e) {
-                    System.out.println("Error loading background image: " + e);
-                }
-            }
-        };
-        jPanel.setLayout(null);
-
-        // Dices
-        /**JLabel diceOneImg = ImageService.loadImage("dice1.png");
-        diceOneImg.setBounds(220, 250, 200, 200);
-        jPanel.add(diceOneImg);
-
-        JLabel diceTwoImg = ImageService.loadImage("dice2.png");
-        diceTwoImg.setBounds(280, 250, 200, 200);
-        jPanel.add(diceTwoImg);
-
-        // Roll Button
-        Random random = new Random();
-        JButton rollButton = new JButton("Roll");
-        rollButton.setBounds(870, 600, 90, 40);
-        rollButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                rollButton.setEnabled(false);
-                // roll 3 seconds
-                long startTime = System.currentTimeMillis();
-                Thread rollThread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        long endTime = System.currentTimeMillis();
-                        try {
-                            while ((endTime - startTime) / 1000F < 3) {
-                                int diceOne = random.nextInt(1, 7);
-                                int diceTwo = random.nextInt(1, 7);
-
-                                lastDiceOne = diceOne;
-                                lastDiceTwo = diceTwo;
-
-                                // update dice images
-                                ImageService.updateImage(diceOneImg, "dice" + diceOne + ".png");
-                                ImageService.updateImage(diceTwoImg, "dice" + diceTwo + ".png");
-
-                                repaint();
-                                revalidate();
-
-                                // sleep thread
-                                Thread.sleep(60);
-                                endTime = System.currentTimeMillis();
-                            }
-
-                            rollButton.setEnabled(true);
-                            printLastRollDiceNumbers();
-                        } catch (InterruptedException e) {
-                            System.out.println("Threading Error: " + e);
-                        }
-                    }
-                });
-                rollThread.start();
+            public void mouseClicked(MouseEvent e) {
+                Point clicked = new Point(e.getX(), e.getY());
+                int squareIndex = findSquare(clicked);
+                gameEngine.setChosenSquareIndex(squareIndex);
             }
         });
-        jPanel.add(rollButton);**/
-
-        // Background Player
-
-        //
-
-        //Table of Player
-        playerInfoTextArea = new JTextArea();
-        playerInfoTextArea.setEditable(false);
-        playerInfoTextArea.setBounds(800, 250, 300, 200);
-        playerInfoTextArea.setBackground(Color.lightGray);
-        jPanel.add(playerInfoTextArea);
-        initializePlayerInfo();
-        //
-        this.getContentPane().add(jPanel);
-    }
-    public int getLastValues(){
-        return lastDiceOne + lastDiceTwo ;
     }
 
-    private void initializePlayerInfo() {
-        playerInfoTextArea.append("Player 1: \n");
-        playerInfoTextArea.append("Money: $1500\n");
-        playerInfoTextArea.append("Properties: Park Place");
-    }
 
-    private void printLastRollDiceNumbers() {
-        System.out.println("Last Roll Dice Numbers: " + lastDiceOne + ", " + lastDiceTwo);
-    }
     private void proccessPath(String message) {
         //path/[57, 58, 59, 60, 61, 62, 63]
         ArrayList<Integer> path = new ArrayList<Integer>();
@@ -194,55 +129,7 @@ public class Board extends JFrame implements Observer {
         }
     }
 
-    public static Board instance;
 
-    public ArrayList<Integer> getCurrentPath() {
-        return currentPath;
-    }
-
-    public HashMap<Integer, Point[]> getSquareMap() {
-        return squareMap;
-    }
-
-    public static Board getInstance() {
-        return instance;
-    }
-    public Board(Point position, int length) {
-        try {
-            image = ImageIO.read(imageSrc);
-            image = image.getScaledInstance(length, length, Image.SCALE_SMOOTH);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        instance = this;
-
-        this.position = position;
-        this.length = length;
-        setPreferredSize(new Dimension(length, length));
-
-        pawnList = new ArrayList<>();
-        pawnFiles.add(P1Src);
-        pawnFiles.add(P2Src);
-        pawnFiles.add(P3Src);
-        pawnFiles.add(P4Src);
-        pawnFiles.add(P5Src);
-        pawnFiles.add(P6Src);
-        pawnFiles.add(P7Src);
-        pawnFiles.add(P8Src);
-        smallSide = length / 13;
-        initialPosition = new Point(9 * smallSide - 20, 9 * smallSide - 20);
-        gameEngine.subscribe(this);
-        initializeSquarePositions();
-
-        this.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                Point clicked = new Point(e.getX(), e.getY());
-                int squareIndex = findSquare(clicked);
-                gameEngine.setChosenSquareIndex(squareIndex);
-            }
-        });
-    }
     private Point[] createPointArray(Point startRightBottom, Point startLeftTop) {
         return new Point[]{new Point(startRightBottom.x, startRightBottom.y),
                 new Point(startLeftTop.x, startLeftTop.y)};
@@ -329,13 +216,13 @@ public class Board extends JFrame implements Observer {
         playerList.forEach(player -> addNewPawn(player, pawnFiles.get(player.getPlaceHolder())));
         repaint();
     }
-    /**public void paint(Graphics g) {
+    public void paint(Graphics g) {
         //g.setColor(color);
-        //g.fillRect(position.x, position.y, length, length);
-        //g.drawImage(image, position.x, position.y, length, length, null);
+        g.fillRect(position.x, position.y, length, length);
+        g.drawImage(image, position.x, position.y, length, length, null);
 
         drawBuildings(g);
-    }**/
+    }
     public void addNewPawn(Player player, File file) {
 
         int xCoord = (squareMap.get(player.getTargetPosition())[0].x + squareMap.get(player.getTargetPosition())[1].x) / 2;

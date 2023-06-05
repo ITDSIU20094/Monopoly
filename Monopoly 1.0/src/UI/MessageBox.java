@@ -3,9 +3,11 @@ package UI;
 import Domain.Controller.CommunicationController;
 import Domain.Model.GameEngine;
 import Domain.Observer;
+import Domain.Server.ServerInfo;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class MessageBox extends JPanel implements Observer {
     private JScrollPane scrollpane;
@@ -34,6 +36,21 @@ public class MessageBox extends JPanel implements Observer {
         contentPane.add(scrollpane);
         this.add(contentPane);
 
+        JPanel enterpane = new JPanel();
+        enterpane.setPreferredSize(new Dimension(width, 50));
+        enterpane.setOpaque(false);
+
+        textEnter = new JTextField();
+        textEnter.setPreferredSize(new Dimension(width - 110, 30));
+        ActionListener actionListener = e -> {
+            if (textEnter.getText() != "") {
+                String message = textEnter.getText();
+                if(message.length()>180)
+                    message = message.substring(0,100);
+                //communicationController.sendClientMessage("message/" + messageWithCilent(message));
+            }
+        };
+
 
     }
 
@@ -41,4 +58,9 @@ public class MessageBox extends JPanel implements Observer {
     public void onEvent(String message) {
 
     }
+ //   public String messageWithClient(String message) {
+        //String client = ServerInfo.getInstance().getClientID();
+        //return "Computer " + (ServerInfo.getInstance().getClientList().indexOf(client) + 1) + " : " + message;
+
+ //   }
 }

@@ -10,6 +10,6 @@ public class ChanceReceiveArollTurn extends ChanceCard {
 
     @Override
     public void playCard(GameEngine gameEngine) {
-
+        gameEngine.isMyTurn();
     }
 }
